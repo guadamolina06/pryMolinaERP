@@ -23,6 +23,12 @@ namespace pryMolinaERP
             txtContrasenia.PasswordChar = '*';
             ActualizarEtiquetaIntentos();
         }
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            frmInicio frmPerfil = new frmInicio();
+            frmPerfil.Show();
+            this.Hide();
+        }
         private int _IntentosRestantes = 3;
         private void btnIngrasar_Click(object sender, EventArgs e)
         {
@@ -76,6 +82,6 @@ namespace pryMolinaERP
                 : System.Drawing.Color.DarkSlateGray;
         }
 
-       
+        
     }
 }
