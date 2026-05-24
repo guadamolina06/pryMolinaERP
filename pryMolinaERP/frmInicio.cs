@@ -22,58 +22,89 @@ namespace pryMolinaERP
         {
             txtContrasenia.PasswordChar = '*';
             ActualizarEtiquetaIntentos();
+            CargarPerfiles();
+        }
+        private void CargarPerfiles()
+        {
+            clsConexion conexion = new clsConexion();
+            List<string> perfiles = conexion.ObtenerPerfiles();
+
+            cmbPerfil.Items.Clear();
+            foreach (string p in perfiles)
+                cmbPerfil.Items.Add(p);
+
+            if (cmbPerfil.Items.Count > 0)
+                cmbPerfil.SelectedIndex = 0;
         }
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            frmInicio frmPerfil = new frmInicio();
-            frmPerfil.Show();
-            this.Hide();
+            frmPerfil frm = new frmPerfil();
+            frm.ShowDialog();          // ShowDialog para esperar a que cierre
+            CargarPerfiles();          // Recargar en caso de que se haya agregado uno nuevo
         }
         private int _IntentosRestantes = 3;
         private void btnIngrasar_Click(object sender, EventArgs e)
         {
-            string nombre = txtUsuario.Text.Trim();
+            string usuario = txtUsuario.Text.Trim();
             string contrasenia = txtContrasenia.Text.Trim();
+            string perfil = cmbPerfil.SelectedItem?.ToString() ?? "";
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(contrasenia))
+            // Validar campos vacíos
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia))
             {
-                MessageBox.Show("Por favor, ingrese su correo electrónico y contraseña.", "Campos vacíos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingrese su usuario y contraseña.",
+                    "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            clsConexion conexion = new clsConexion();
-            UsuarioInfo info = conexion.ValidarUsuario(nombre, contrasenia);
 
+            if (string.IsNullOrEmpty(perfil))
+            {
+                MessageBox.Show("Seleccione un perfil para continuar.",
+                    "Perfil requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que sea perfil Administrador
+            if (!perfil.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Solo los usuarios Administradores pueden ingresar al sistema.",
+                    "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            // Validar usuario + contraseña + perfil contra la BD
+            clsConexion conexion = new clsConexion();
+            UsuarioInfo info = conexion.ValidarUsuario(usuario, contrasenia, perfil);
 
             if (info != null)
             {
-                Form1 frmInicio = new Form1(info);
-                frmInicio.Show();
+                frmPersonal frmPrincipal = new frmPersonal(info);
+                frmPrincipal.Show();
                 this.Hide();
             }
-            else 
+            else
             {
                 _IntentosRestantes--;
-                
-                if(_IntentosRestantes <= 0)
+
+                if (_IntentosRestantes <= 0)
                 {
                     MessageBox.Show("Ha superado el número máximo de intentos.\nEl sistema se cerrará.",
                         "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     Application.Exit();
                     return;
-
                 }
+
                 MessageBox.Show(
-                    "$Usuario o contraseña incorrectos.\nIntentos restantes: {_intentosRestantes}",
+                    $"Usuario, contraseña o perfil incorrectos.\nIntentos restantes: {_IntentosRestantes}",
                     "Acceso inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 txtContrasenia.Clear();
                 txtContrasenia.Focus();
                 ActualizarEtiquetaIntentos();
-
             }
-     
+
         }
+
         private void ActualizarEtiquetaIntentos()
         {
             lblIntentos.Text = $"Intentos restantes: {_IntentosRestantes}";
@@ -82,6 +113,9 @@ namespace pryMolinaERP
                 : System.Drawing.Color.DarkSlateGray;
         }
 
-        
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
