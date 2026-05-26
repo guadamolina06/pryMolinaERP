@@ -145,7 +145,7 @@ namespace pryMolinaERP
             }
             return perfiles;
         }
-        // ── Guardar un perfil nuevo (evita duplicados) ───────────────────────────
+        // ── Guardar un perfil nuevo (evita duplicados)
         public bool GuardarPerfil(string nombrePerfil)
         {
             if (string.IsNullOrWhiteSpace(nombrePerfil)) return false;
@@ -274,8 +274,7 @@ namespace pryMolinaERP
             Mail TEXT(100),
             Telefono TEXT(20),
             Redes TEXT(50),
-            Activo YESNO
-        )";
+            Activo YESNO)";
 
                 ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
                 ComandoBaseDatos.ExecuteNonQuery();
@@ -290,8 +289,8 @@ namespace pryMolinaERP
             }
         }
         public bool GuardarPersonal(string dni, string nombre, string apellido,
-    string provincia, string localidad, string direccion, string geo,
-    string mail, string telefono, string redes, bool activo)
+        string provincia, string localidad, string direccion, string geo,
+        string mail, string telefono, string redes, bool activo)
         {
             try
             {
@@ -371,6 +370,7 @@ namespace pryMolinaERP
         public string NombreCompleto { get; set; }
         public string Perfil { get; set; }
         public DateTime FechaIngreso { get; set; }
+        public int IdSesion { get; set; }
     }
 
 }
