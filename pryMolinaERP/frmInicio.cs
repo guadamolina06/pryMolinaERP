@@ -102,6 +102,16 @@ namespace pryMolinaERP
                 txtContrasenia.Focus();
                 ActualizarEtiquetaIntentos();
             }
+            if (info != null)
+            {
+                // Registrar en tabla Auditoria y guardar el IdSesion
+                clsAuditoria aud = new clsAuditoria();
+                info.IdSesion = aud.IniciarSesion(usuario);  // graba Usuario, Hora, Fecha
+
+                frmPersonal frmPrincipal = new frmPersonal(info);
+                frmPrincipal.Show();
+                this.Hide();
+            }
 
         }
 

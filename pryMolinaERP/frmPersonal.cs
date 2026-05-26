@@ -147,5 +147,20 @@ namespace pryMolinaERP
                 }
             }
         }
+        private void CargarTabAuditoria()
+        {
+            clsAuditoria aud = new clsAuditoria();
+            AuditoriaInfo datos = aud.ObtenerDatosSesion(_usuario.IdSesion);
+
+            if (datos != null)
+            {
+                lblHora.Text = datos.Hora.ToString("HH:mm:ss");
+                lblFecha.Text = datos.Fecha.ToString("dd/MM/yyyy");
+                lblInicioSesion.Text = datos.Hora.ToString("HH:mm:ss");   // misma hora de ingreso
+                lblNombre.Text = _usuario.NombreCompleto;
+                lblUsuario.Text = datos.Usuario;
+                lblPerfil.Text = _usuario.Perfil;
+            }
+        }
     }    
 }
