@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using pryMolinaERP;
 
 namespace pryMolinaERP
 {
@@ -24,6 +17,7 @@ namespace pryMolinaERP
             ActualizarEtiquetaIntentos();
             CargarPerfiles();
         }
+
         private void CargarPerfiles()
         {
             clsConexion conexion = new clsConexion();
@@ -36,20 +30,22 @@ namespace pryMolinaERP
             if (cmbPerfil.Items.Count > 0)
                 cmbPerfil.SelectedIndex = 0;
         }
+
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             frmPerfil frm = new frmPerfil();
-            frm.ShowDialog();          // ShowDialog para esperar a que cierre
-            CargarPerfiles();          // Recargar en caso de que se haya agregado uno nuevo
+            frm.ShowDialog();
+            CargarPerfiles();
         }
+
         private int _IntentosRestantes = 3;
+
         private void btnIngrasar_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text.Trim();
             string contrasenia = txtContrasenia.Text.Trim();
             string perfil = cmbPerfil.SelectedItem?.ToString() ?? "";
 
-            // Validar campos vacíos
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia))
             {
                 MessageBox.Show("Por favor, ingrese su usuario y contraseña.",
@@ -64,7 +60,6 @@ namespace pryMolinaERP
                 return;
             }
 
-            // Validar que sea perfil Administrador
             if (!perfil.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
             {
                 MessageBox.Show("Solo los usuarios Administradores pueden ingresar al sistema.",
@@ -72,15 +67,23 @@ namespace pryMolinaERP
                 return;
             }
 
-            // Validar usuario + contraseña + perfil contra la BD
             clsConexion conexion = new clsConexion();
             UsuarioInfo info = conexion.ValidarUsuario(usuario, contrasenia, perfil);
 
             if (info != null)
             {
+                clsAuditoria aud = new clsAuditoria();
+                info.IdSesion = aud.RegistrarEvento(
+                    usuario,
+                    info.Perfil,
+                    info.NombreCompleto,
+                    "Inicio de sesión");
+
                 frmPersonal frmPrincipal = new frmPersonal(info);
                 frmPrincipal.Show();
                 this.Hide();
+
+               
             }
             else
             {
@@ -102,17 +105,6 @@ namespace pryMolinaERP
                 txtContrasenia.Focus();
                 ActualizarEtiquetaIntentos();
             }
-            if (info != null)
-            {
-                // Registrar en tabla Auditoria y guardar el IdSesion
-                clsAuditoria aud = new clsAuditoria();
-                info.IdSesion = aud.IniciarSesion(usuario);  // graba Usuario, Hora, Fecha
-
-                frmPersonal frmPrincipal = new frmPersonal(info);
-                frmPrincipal.Show();
-                this.Hide();
-            }
-
         }
 
         private void ActualizarEtiquetaIntentos()

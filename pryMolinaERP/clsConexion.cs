@@ -36,7 +36,7 @@ namespace pryMolinaERP
                 MessageBox.Show("Error al conectar con la base de datos: " + error.Message);
             }
         }
-        public bool ProbarConexion() 
+        public bool ProbarConexion()
         {
             try
             {
@@ -44,9 +44,9 @@ namespace pryMolinaERP
                 ConectorBaseDatos.Open();
                 Estadoconexion = "Conexión exitosa";
                 ConectorBaseDatos.Close();
-                return true;    
+                return true;
             }
-            catch 
+            catch
             {
                 Estadoconexion = "Sin Conexion";
                 return false;
