@@ -287,6 +287,7 @@ namespace pryMolinaERP
             // Recargar auditoría con filtros por defecto
             CargarAuditoria();
         }
+
     }
 }
 
