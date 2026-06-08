@@ -8,11 +8,15 @@ namespace pryMolinaERP
     public partial class frmPersonal : Form
     {
         private readonly UsuarioInfo _usuario;
+        private int _contadorRedes = 1;
+        private int _contadorDoms = 1;
 
         public frmPersonal(UsuarioInfo usuario)
         {
             InitializeComponent();
             _usuario = usuario;
+           
+ 
         }
 
         // ── Carga inicial ────────────────────────────────────────────────────
@@ -43,7 +47,20 @@ namespace pryMolinaERP
             // Fecha por defecto: último mes
             dtpDesde.Value = DateTime.Today.AddMonths(-1);
             dtpHasta.Value = DateTime.Today;
+            try
+            {
+                clsConexion cx = new clsConexion();
+                cx.ObtenerProvincias(); // prueba real de conexión
+                lblEstadoBD.Text = "  ●  Conectado a la base de datos";
+                lblEstadoBD.ForeColor = System.Drawing.Color.Green;
+            }
+            catch
+            {
+                lblEstadoBD.Text = "  ●  Sin conexión a la base de datos";
+                lblEstadoBD.ForeColor = System.Drawing.Color.Red;
+            }
         }
+     
 
         // ── Tab Personal ─────────────────────────────────────────────────────
         private void CargarProvincias()
@@ -63,19 +80,17 @@ namespace pryMolinaERP
         {
             if (cmbProv.SelectedItem == null) return;
 
+            cmbLoc.Items.Clear();
+
             if (cmbProv.SelectedItem.ToString() == "Córdoba")
             {
                 clsConexion conexion = new clsConexion();
                 List<string> localidades = conexion.ObtenerLocalidades("");
-                cmbLoc.Items.Clear();
                 foreach (string l in localidades)
                     cmbLoc.Items.Add(l);
+
                 if (cmbLoc.Items.Count > 0)
                     cmbLoc.SelectedIndex = 0;
-            }
-            else
-            {
-                cmbLoc.Items.Clear();
             }
         }
 
@@ -88,6 +103,20 @@ namespace pryMolinaERP
             cmbRedes.SelectedIndex = -1;
             chkActivo.Checked = false;
             txtdni.Focus();
+            List<TabPage> aEliminar = new List<TabPage>();
+            foreach (TabPage tp in tcRedes.TabPages)
+                if (tp != tpRed1 && tp != tpplus)
+                    aEliminar.Add(tp);
+            foreach (TabPage tp in aEliminar)
+                tcRedes.TabPages.Remove(tp);
+            _contadorRedes = 1;
+            List<TabPage> domAEliminar = new List<TabPage>();
+            foreach (TabPage tp in tpDomicilio.TabPages)
+                if (tp != tpDom1 && tp != tpdpus)
+                    domAEliminar.Add(tp);
+            foreach (TabPage tp in domAEliminar)
+                tpDomicilio.TabPages.Remove(tp);
+            _contadorDoms = 1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -206,8 +235,8 @@ namespace pryMolinaERP
             string usuario = txtFiltroUsuario.Text.Trim();
             string accion = cmbFiltroAccion.SelectedIndex > 0
                              ? cmbFiltroAccion.SelectedItem.ToString() : "";
-            DateTime? desde = chkFiltroFecha.Checked ? (DateTime?)dtpDesde.Value : null;
-            DateTime? hasta = chkFiltroFecha.Checked ? (DateTime?)dtpHasta.Value : null;
+            DateTime? desde = chkFiltroFecha.Checked ? (DateTime?)dtpDesde.Value.Date : null;
+            DateTime? hasta = chkFiltroFecha.Checked ? (DateTime?)dtpHasta.Value.Date : null;
 
             List<AuditoriaInfo> lista = aud.ObtenerRegistros(usuario, accion, desde, hasta);
 
@@ -216,23 +245,16 @@ namespace pryMolinaERP
 
             lblTotalRegistros.Text = $"Registros: {lista.Count}";
         }
-       
-      
+
+
 
         private void btnFlitrar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                CargarAuditoria();
-                MessageBox.Show($"Registros cargados: {dgvAuditoria.Rows.Count}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message + "\n\n" + ex.StackTrace);
-            }
+            CargarAuditoria();
         }
 
-       
+
+
 
         private void chkFiltroFecha_TextChanged(object sender, EventArgs e)
         {
@@ -286,6 +308,168 @@ namespace pryMolinaERP
 
             // Recargar auditoría con filtros por defecto
             CargarAuditoria();
+        }
+        private void CargarCmbRedes(ComboBox cmb)
+        {
+            cmb.Items.Clear();
+            cmb.Items.AddRange(new[] {
+                "Facebook","Instagram","Twitter/X","LinkedIn","WhatsApp","TikTok","YouTube"
+            });
+            cmb.SelectedIndex = -1;
+        }
+        private void tcRedes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Si el usuario seleccionó el tab "+"
+            if (tcRedes.SelectedTab == tpplus)
+            {
+                AgregarTabRed();
+            }
+        }
+        private void AgregarTabRed()
+        {
+            _contadorRedes++;
+
+            // Crear nueva TabPage
+            TabPage nuevaTab = new TabPage($"Red {_contadorRedes}");
+
+            // ── Controles internos ──
+            Label lblRed = new Label { Text = "Red:", AutoSize = true, Location = new System.Drawing.Point(47, 23) };
+            ComboBox cmb = new ComboBox { Location = new System.Drawing.Point(95, 20), Size = new System.Drawing.Size(179, 24), Name = $"cmbRedes_{_contadorRedes}" };
+            CargarCmbRedes(cmb);
+
+            Label lblUsr = new Label { Text = "Usuario:", AutoSize = true, Location = new System.Drawing.Point(316, 26) };
+            TextBox txtUsr = new TextBox { Location = new System.Drawing.Point(385, 23), Size = new System.Drawing.Size(195, 22), Name = $"txtUsuarioRed_{_contadorRedes}" };
+
+            Label lblUrl = new Label { Text = "URL:", AutoSize = true, Location = new System.Drawing.Point(43, 73) };
+            TextBox txtUrl = new TextBox { Location = new System.Drawing.Point(95, 69), Size = new System.Drawing.Size(179, 22), Name = $"txtUrl_{_contadorRedes}" };
+
+            // Botón eliminar esta pestaña
+            Button btnElim = new Button
+            {
+                Text = "Eliminar red",
+                Location = new System.Drawing.Point(385, 65),
+                Size = new System.Drawing.Size(100, 28),
+                Tag = nuevaTab
+            };
+            btnElim.Click += btnEliminarR_Click;
+
+            nuevaTab.Controls.AddRange(new System.Windows.Forms.Control[] {
+                lblRed, cmb, lblUsr, txtUsr, lblUrl, txtUrl, btnElim
+            });
+
+            // Insertar antes del tab "+"
+            int posPlus = tcRedes.TabPages.IndexOf(tpplus);
+            tcRedes.TabPages.Insert(posPlus, nuevaTab);
+
+            // Seleccionar la nueva pestaña
+            tcRedes.SelectedTab = nuevaTab;
+        }
+
+        private void btnEliminarR_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == null) return;
+
+            TabPage tabAEliminar = btn.Tag as TabPage;
+            if (tabAEliminar == null) return;
+
+            if (tcRedes.TabPages.Count <= 2) // solo queda Red 1 y +
+            {
+                MessageBox.Show("Debe haber al menos una red social.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            tcRedes.TabPages.Remove(tabAEliminar);
+
+            // Renumerar las pestañas
+            int numero = 1;
+            foreach (TabPage tp in tcRedes.TabPages)
+            {
+                if (tp == tpplus) continue;
+                tp.Text = $"Red {numero}";
+                numero++;
+            }
+            _contadorRedes = numero - 1;
+        }
+
+        private void tpDomicilio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tpDomicilio.SelectedTab == tpdpus)
+                AgregarTabDom();
+        }
+        private void AgregarTabDom()
+        {
+            _contadorDoms++;
+
+            TabPage nuevaTab = new TabPage($"Dom {_contadorDoms}");
+
+            Label lblProv = new Label { Text = "Provincia:", AutoSize = true, Location = new System.Drawing.Point(24, 25) };
+            ComboBox cmbProv2 = new ComboBox { Location = new System.Drawing.Point(177, 25), Size = new System.Drawing.Size(132, 24), Name = $"cmbProv_{_contadorDoms}" };
+            try { clsConexion cx = new clsConexion(); foreach (string p in cx.ObtenerProvincias()) cmbProv2.Items.Add(p); } catch { }
+
+            Label lblLoc = new Label { Text = "Localidad:", AutoSize = true, Location = new System.Drawing.Point(24, 65) };
+            ComboBox cmbLoc2 = new ComboBox { Location = new System.Drawing.Point(177, 58), Size = new System.Drawing.Size(132, 24), Name = $"cmbLoc_{_contadorDoms}" };
+
+            Label lblDir = new Label { Text = "Dirección:", AutoSize = true, Location = new System.Drawing.Point(373, 20) };
+            TextBox txtDir = new TextBox { Location = new System.Drawing.Point(460, 20), Size = new System.Drawing.Size(132, 22), Name = $"txtDir_{_contadorDoms}" };
+
+            Label lblGeo2 = new Label { Text = "Geo(cordenadas):", AutoSize = true, Location = new System.Drawing.Point(373, 66) };
+            TextBox txtGeo2 = new TextBox { Location = new System.Drawing.Point(488, 62), Size = new System.Drawing.Size(132, 22), Name = $"txtGeo_{_contadorDoms}" };
+
+            Label lblTipo2 = new Label { Text = "Tipo:", AutoSize = true, Location = new System.Drawing.Point(24, 103) };
+            ComboBox cmbTipo2 = new ComboBox { Location = new System.Drawing.Point(177, 94), Size = new System.Drawing.Size(132, 24), Name = $"cmbTipo_{_contadorDoms}" };
+            cmbTipo2.Items.AddRange(new object[] { "Pricipal", "Laboral", "Alternatibo", "Fiscal" });
+
+            Button btnElim = new Button
+            {
+                Text = "Eliminar dom.",
+                Location = new System.Drawing.Point(24, 130),
+                Size = new System.Drawing.Size(100, 26),
+                Tag = nuevaTab
+            };
+            btnElim.Click += btnEliminarD_Click;
+
+            nuevaTab.Controls.AddRange(new System.Windows.Forms.Control[] {
+               lblProv, cmbProv2, lblLoc, cmbLoc2,
+              lblDir, txtDir, lblGeo2, txtGeo2,
+               lblTipo2, cmbTipo2, btnElim
+            });
+
+            int posPlus = tpDomicilio.TabPages.IndexOf(tpdpus);
+            tpDomicilio.TabPages.Insert(posPlus, nuevaTab);
+            tpDomicilio.SelectedTab = nuevaTab;
+        }
+
+        private void btnEliminarD_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == null) return;
+
+            TabPage tabAEliminar = btn.Tag as TabPage;
+            if (tabAEliminar == null) return;
+
+            if (tpDomicilio.TabPages.Count <= 2)
+            {
+                MessageBox.Show("Debe haber al menos un domicilio.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            tpDomicilio.TabPages.Remove(tabAEliminar);
+
+            int numero = 1;
+            foreach (TabPage tp in tpDomicilio.TabPages)
+            {
+                if (tp == tpdpus) continue;
+                tp.Text = $"Dom {numero}";
+                numero++;
+            }
+            _contadorDoms = numero - 1;
+        }
+        private void frmPersonal_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
     }
