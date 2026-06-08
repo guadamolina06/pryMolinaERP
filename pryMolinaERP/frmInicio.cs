@@ -106,6 +106,10 @@ namespace pryMolinaERP
                 ActualizarEtiquetaIntentos();
             }
         }
+        private void chkMostrarContrasenia_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasenia.PasswordChar = chkMostrarContrasenia.Checked ? '\0' : '*';
+        }
 
         private void ActualizarEtiquetaIntentos()
         {
@@ -119,5 +123,7 @@ namespace pryMolinaERP
         {
             Application.Exit();
         }
+
+
     }
 }

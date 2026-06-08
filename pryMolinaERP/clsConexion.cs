@@ -208,6 +208,7 @@ namespace pryMolinaERP
             return provincias;
 
         }
+        
         public List<string> ObtenerLocalidades(string provincia)
         {
             List<string> localidades = new List<string>();
@@ -232,6 +233,7 @@ namespace pryMolinaERP
             }
             return localidades;
         }
+       
         public void MostrarColumnasPersonal()
         {
             try
