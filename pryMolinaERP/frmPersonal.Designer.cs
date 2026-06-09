@@ -762,6 +762,7 @@
             this.Name = "frmPersonal";
             this.Text = "Administrador";
             this.Load += new System.EventHandler(this.frmPersonal_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPersonal_FormClosing);
             this.tbcADM.ResumeLayout(false);
             this.tbpUsuario.ResumeLayout(false);
             this.tbpUsuario.PerformLayout();

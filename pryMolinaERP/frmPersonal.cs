@@ -101,7 +101,7 @@ namespace pryMolinaERP
             txtDireccion.Clear(); txtGeo.Clear();
             txtMail.Clear(); txtTelefono.Clear();
             cmbRedes.SelectedIndex = -1;
-            chkActivo.Checked = false;
+           
             txtdni.Focus();
             List<TabPage> aEliminar = new List<TabPage>();
             foreach (TabPage tp in tcRedes.TabPages)
@@ -137,8 +137,8 @@ namespace pryMolinaERP
                 cmbLoc.SelectedItem?.ToString() ?? "",
                 txtDireccion.Text.Trim(), txtGeo.Text.Trim(),
                 txtMail.Text.Trim(), txtTelefono.Text.Trim(),
-                cmbRedes.SelectedItem?.ToString() ?? "",
-                chkActivo.Checked);
+                cmbRedes.SelectedItem?.ToString() ?? ""
+             );
 
             if (resultado)
                 MessageBox.Show("Personal guardado correctamente.",

@@ -16,6 +16,7 @@ namespace pryMolinaERP
             txtContrasenia.PasswordChar = '*';
             ActualizarEtiquetaIntentos();
             CargarPerfiles();
+            this.AcceptButton = btnIngrasar;
         }
 
         private void CargarPerfiles()

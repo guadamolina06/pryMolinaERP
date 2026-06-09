@@ -292,7 +292,7 @@ namespace pryMolinaERP
         }
         public bool GuardarPersonal(string dni, string nombre, string apellido,
         string provincia, string localidad, string direccion, string geo,
-        string mail, string telefono, string redes, bool activo)
+        string mail, string telefono, string redes)
         {
             try
             {
@@ -317,8 +317,8 @@ namespace pryMolinaERP
                 {
                     // Insertar
                     sql = "INSERT INTO Personal (Nombre, Apellido, Provincia, Localidad, " +
-                          "Direccion, Geo, Mail, Telefono, Redes, Activo, DNI) " +
-                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                          "Direccion, Geo, Mail, Telefono, Redes, DNI) " +
+                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 }
 
                 ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
@@ -331,8 +331,7 @@ namespace pryMolinaERP
                 ComandoBaseDatos.Parameters.Add("p7", OleDbType.VarWChar).Value = mail;
                 ComandoBaseDatos.Parameters.Add("p8", OleDbType.VarWChar).Value = telefono;
                 ComandoBaseDatos.Parameters.Add("p9", OleDbType.VarWChar).Value = redes;
-                ComandoBaseDatos.Parameters.Add("p10", OleDbType.Boolean).Value = activo;
-                ComandoBaseDatos.Parameters.Add("p11", OleDbType.VarWChar).Value = dni;
+                ComandoBaseDatos.Parameters.Add("p10", OleDbType.VarWChar).Value = dni;
 
                 ComandoBaseDatos.ExecuteNonQuery();
                 ConectorBaseDatos.Close();
