@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace pryMolinaERP
@@ -25,7 +26,8 @@ namespace pryMolinaERP
             if (_usuario != null)
                 this.Text = $"Recursos Humanos  —  {_usuario.NombreCompleto}  |  Perfil: {_usuario.Perfil}";
 
-            CargarProvincias();
+            CargarProvincias(); 
+            cargarContactos();
 
             cmbRedes.Items.Clear();
             cmbRedes.Items.AddRange(new[] {
@@ -43,6 +45,10 @@ namespace pryMolinaERP
             cmbFiltroAccion.Items.Add("Ingreso a Personal");
             cmbFiltroAccion.Items.Add("Ingreso a Auditoría");
             cmbFiltroAccion.SelectedIndex = 0;
+            //Limpiar componentes
+            txtApellido.Clear();
+            txtdni.Clear();
+            txtNombre.Clear();
 
             // Fecha por defecto: último mes
             dtpDesde.Value = DateTime.Today.AddMonths(-1);
@@ -59,8 +65,21 @@ namespace pryMolinaERP
                 lblEstadoBD.Text = "  ●  Sin conexión a la base de datos";
                 lblEstadoBD.ForeColor = System.Drawing.Color.Red;
             }
+            cmbContacto.Enabled = false;
         }
-     
+        //Cargar contactos del personal
+        private void cargarContactos()
+        { clsConexion conexion = new clsConexion();
+            List<string> DNI = conexion.ObtenerDNI();
+            cmbContacto.Items.Clear();
+            foreach (string d in DNI)
+                cmbContacto.Items.Add(d);
+            if(cmbContacto.Items.Count > 0)
+                cmbContacto.SelectedIndex = 0;
+        }
+        
+
+
 
         // ── Tab Personal ─────────────────────────────────────────────────────
         private void CargarProvincias()
@@ -96,6 +115,8 @@ namespace pryMolinaERP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            cmbContacto.Enabled = false;
+
             txtdni.Clear(); txtNombre.Clear(); txtApellido.Clear();
             cmbProv.SelectedIndex = -1; cmbLoc.Items.Clear();
             txtDireccion.Clear(); txtGeo.Clear();
@@ -118,14 +139,21 @@ namespace pryMolinaERP
                 tpDomicilio.TabPages.Remove(tp);
             _contadorDoms = 1;
         }
+        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtdni.Text) ||
                 string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text))
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(cmbProv.Text)||
+                string.IsNullOrWhiteSpace(cmbLoc.Text)||
+                string.IsNullOrWhiteSpace(cmbTipo.Text)||
+                string.IsNullOrWhiteSpace(cmbTipo.Text)||
+                string.IsNullOrWhiteSpace(txtDireccion.Text)||
+                string.IsNullOrWhiteSpace(txtGeo.Text))
             {
-                MessageBox.Show("DNI, Nombre y Apellido son obligatorios.",
+                MessageBox.Show("DNI, Nombre, Apellido y Domicilio completo son obligatorios.",
                     "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -139,14 +167,18 @@ namespace pryMolinaERP
                 txtMail.Text.Trim(), txtTelefono.Text.Trim(),
                 cmbRedes.SelectedItem?.ToString() ?? ""
              );
-
+           
             if (resultado)
                 MessageBox.Show("Personal guardado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
         }
+       
+
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrWhiteSpace(txtdni.Text))
             {
                 MessageBox.Show("Ingrese el DNI del personal a eliminar.",
@@ -334,11 +366,11 @@ namespace pryMolinaERP
 
             // ── Controles internos ──
             Label lblRed = new Label { Text = "Red:", AutoSize = true, Location = new System.Drawing.Point(47, 23) };
-            ComboBox cmb = new ComboBox { Location = new System.Drawing.Point(95, 20), Size = new System.Drawing.Size(179, 24), Name = $"cmbRedes_{_contadorRedes}" };
+            ComboBox cmb = new ComboBox { Location = new System.Drawing.Point(95, 20), Size = new System.Drawing.Size(179, 24), Name = $"cmbRedes_{_contadorRedes}", DropDownStyle = ComboBoxStyle.DropDownList };
             CargarCmbRedes(cmb);
 
             Label lblUsr = new Label { Text = "Usuario:", AutoSize = true, Location = new System.Drawing.Point(316, 26) };
-            TextBox txtUsr = new TextBox { Location = new System.Drawing.Point(385, 23), Size = new System.Drawing.Size(195, 22), Name = $"txtUsuarioRed_{_contadorRedes}" };
+            TextBox txtUsr = new TextBox { Location = new System.Drawing.Point(385, 23), Size = new System.Drawing.Size(195, 22), Name = $"txtUsuarioRed_{_contadorRedes}"};
 
             Label lblUrl = new Label { Text = "URL:", AutoSize = true, Location = new System.Drawing.Point(43, 73) };
             TextBox txtUrl = new TextBox { Location = new System.Drawing.Point(95, 69), Size = new System.Drawing.Size(179, 22), Name = $"txtUrl_{_contadorRedes}" };
@@ -405,12 +437,26 @@ namespace pryMolinaERP
             TabPage nuevaTab = new TabPage($"Dom {_contadorDoms}");
 
             Label lblProv = new Label { Text = "Provincia:", AutoSize = true, Location = new System.Drawing.Point(24, 25) };
-            ComboBox cmbProv2 = new ComboBox { Location = new System.Drawing.Point(177, 25), Size = new System.Drawing.Size(132, 24), Name = $"cmbProv_{_contadorDoms}" };
+            ComboBox cmbProv2 = new ComboBox { Location = new System.Drawing.Point(177, 25), Size = new System.Drawing.Size(132, 24), Name = $"cmbProv_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
             try { clsConexion cx = new clsConexion(); foreach (string p in cx.ObtenerProvincias()) cmbProv2.Items.Add(p); } catch { }
 
             Label lblLoc = new Label { Text = "Localidad:", AutoSize = true, Location = new System.Drawing.Point(24, 65) };
-            ComboBox cmbLoc2 = new ComboBox { Location = new System.Drawing.Point(177, 58), Size = new System.Drawing.Size(132, 24), Name = $"cmbLoc_{_contadorDoms}" };
-
+            ComboBox cmbLoc2 = new ComboBox { Location = new System.Drawing.Point(177, 58), Size = new System.Drawing.Size(132, 24), Name = $"cmbLoc_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbProv2.SelectedIndexChanged += (s, ev) =>
+            {
+                cmbLoc2.Items.Clear();
+                if (cmbProv2.SelectedItem?.ToString() == "Córdoba")
+                {
+                    try
+                    {
+                        clsConexion cx2 = new clsConexion();
+                        foreach (string l in cx2.ObtenerLocalidades(""))
+                            cmbLoc2.Items.Add(l);
+                        if (cmbLoc2.Items.Count > 0) cmbLoc2.SelectedIndex = 0;
+                    }
+                    catch { }
+                }
+            };
             Label lblDir = new Label { Text = "Dirección:", AutoSize = true, Location = new System.Drawing.Point(373, 20) };
             TextBox txtDir = new TextBox { Location = new System.Drawing.Point(460, 20), Size = new System.Drawing.Size(132, 22), Name = $"txtDir_{_contadorDoms}" };
 
@@ -418,7 +464,7 @@ namespace pryMolinaERP
             TextBox txtGeo2 = new TextBox { Location = new System.Drawing.Point(488, 62), Size = new System.Drawing.Size(132, 22), Name = $"txtGeo_{_contadorDoms}" };
 
             Label lblTipo2 = new Label { Text = "Tipo:", AutoSize = true, Location = new System.Drawing.Point(24, 103) };
-            ComboBox cmbTipo2 = new ComboBox { Location = new System.Drawing.Point(177, 94), Size = new System.Drawing.Size(132, 24), Name = $"cmbTipo_{_contadorDoms}" };
+            ComboBox cmbTipo2 = new ComboBox { Location = new System.Drawing.Point(177, 94), Size = new System.Drawing.Size(132, 24), Name = $"cmbTipo_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
             cmbTipo2.Items.AddRange(new object[] { "Pricipal", "Laboral", "Alternatibo", "Fiscal" });
 
             Button btnElim = new Button
@@ -472,6 +518,57 @@ namespace pryMolinaERP
             Application.Exit();
         }
 
+        private void cmbContacto_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+            string dni = cmbContacto.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(dni)) return;
+
+            clsConexion cx = new clsConexion();
+            PersonalInfo p = cx.ObtenerPersonalPorDNI(dni);
+            if (p == null) return;
+
+            // Datos básicos
+            txtdni.Text = p.DNI;
+            txtNombre.Text = p.Nombre;
+            txtApellido.Text = p.Apellido;
+
+            // Provincia
+            int idxProv = cmbProv.Items.IndexOf(p.Provincia);
+            if (idxProv >= 0)
+                cmbProv.SelectedIndex = idxProv;
+            else
+            {
+                cmbProv.SelectedIndex = -1;
+                // Si la provincia no estaba en la lista, forzar carga de localidad igual
+                cmbLoc.Items.Clear();
+            }
+
+            // Localidad (puede que cmbProv_SelectedIndexChanged ya la haya cargado si es Córdoba)
+            int idxLoc = cmbLoc.Items.IndexOf(p.Localidad);
+            if (idxLoc >= 0)
+                cmbLoc.SelectedIndex = idxLoc;
+            else
+                cmbLoc.SelectedIndex = -1;
+
+            // Resto de campos
+            txtDireccion.Text = p.Direccion;
+            txtGeo.Text = p.Geo;
+            txtMail.Text = p.Mail;
+            txtTelefono.Text = p.Telefono;
+
+            // Red social
+            int idxRed = cmbRedes.Items.IndexOf(p.Redes);
+            cmbRedes.SelectedIndex = idxRed >= 0 ? idxRed : -1;
+
+            // Navegar al tab de Datos Personales para que el usuario vea todo
+            tcDatos.SelectedTab = tpDatosPersonales;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            cmbContacto.Enabled = true;
+        }
     }
 }
 
