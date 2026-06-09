@@ -46,49 +46,44 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.Size = new System.Drawing.Size(50, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ususario:";
+            this.label1.Text = "Usuario:";
             // 
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
             this.lblContrasenia.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia.Location = new System.Drawing.Point(20, 97);
-            this.lblContrasenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContrasenia.Location = new System.Drawing.Point(15, 79);
             this.lblContrasenia.Name = "lblContrasenia";
-            this.lblContrasenia.Size = new System.Drawing.Size(81, 18);
+            this.lblContrasenia.Size = new System.Drawing.Size(69, 14);
             this.lblContrasenia.TabIndex = 1;
             this.lblContrasenia.Text = "Contraseña:";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(152, 39);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.Location = new System.Drawing.Point(114, 32);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(132, 25);
+            this.txtUsuario.Size = new System.Drawing.Size(100, 21);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(152, 97);
-            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContrasenia.Location = new System.Drawing.Point(114, 79);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(132, 25);
+            this.txtContrasenia.Size = new System.Drawing.Size(100, 21);
             this.txtContrasenia.TabIndex = 3;
             // 
             // btnIngrasar
             // 
             this.btnIngrasar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngrasar.Location = new System.Drawing.Point(152, 312);
-            this.btnIngrasar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIngrasar.Location = new System.Drawing.Point(114, 254);
             this.btnIngrasar.Name = "btnIngrasar";
-            this.btnIngrasar.Size = new System.Drawing.Size(109, 28);
+            this.btnIngrasar.Size = new System.Drawing.Size(82, 23);
             this.btnIngrasar.TabIndex = 4;
             this.btnIngrasar.Text = "Ingresar";
             this.btnIngrasar.UseVisualStyleBackColor = true;
@@ -97,18 +92,20 @@
             // lblInt
             // 
             this.lblInt.AutoSize = true;
-            this.lblInt.Location = new System.Drawing.Point(19, 260);
+            this.lblInt.Location = new System.Drawing.Point(14, 211);
+            this.lblInt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInt.Name = "lblInt";
-            this.lblInt.Size = new System.Drawing.Size(53, 16);
+            this.lblInt.Size = new System.Drawing.Size(45, 13);
             this.lblInt.TabIndex = 5;
             this.lblInt.Text = "Intentos";
             // 
             // lblIntentos
             // 
             this.lblIntentos.AutoSize = true;
-            this.lblIntentos.Location = new System.Drawing.Point(91, 260);
+            this.lblIntentos.Location = new System.Drawing.Point(68, 211);
+            this.lblIntentos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIntentos.Name = "lblIntentos";
-            this.lblIntentos.Size = new System.Drawing.Size(10, 16);
+            this.lblIntentos.Size = new System.Drawing.Size(10, 13);
             this.lblIntentos.TabIndex = 6;
             this.lblIntentos.Text = ".";
             // 
@@ -116,30 +113,28 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(20, 192);
-            this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPerfil.Location = new System.Drawing.Point(15, 156);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(41, 18);
+            this.lblPerfil.Size = new System.Drawing.Size(36, 14);
             this.lblPerfil.TabIndex = 7;
             this.lblPerfil.Text = "Perfil:";
             // 
             // cmbPerfil
             // 
+            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPerfil.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPerfil.FormattingEnabled = true;
-            this.cmbPerfil.Location = new System.Drawing.Point(127, 188);
-            this.cmbPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbPerfil.Location = new System.Drawing.Point(95, 153);
             this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(157, 26);
+            this.cmbPerfil.Size = new System.Drawing.Size(119, 22);
             this.cmbPerfil.TabIndex = 8;
             // 
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(23, 312);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(17, 254);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 28);
+            this.btnSalir.Size = new System.Drawing.Size(82, 23);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -148,21 +143,21 @@
             // chkMostrarContrasenia
             // 
             this.chkMostrarContrasenia.AutoSize = true;
-            this.chkMostrarContrasenia.Location = new System.Drawing.Point(138, 144);
+            this.chkMostrarContrasenia.Location = new System.Drawing.Point(104, 117);
+            this.chkMostrarContrasenia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkMostrarContrasenia.Name = "chkMostrarContrasenia";
-            this.chkMostrarContrasenia.Size = new System.Drawing.Size(146, 20);
+            this.chkMostrarContrasenia.Size = new System.Drawing.Size(118, 17);
             this.chkMostrarContrasenia.TabIndex = 4;
             this.chkMostrarContrasenia.Text = "Mostrar Contraseña";
             this.chkMostrarContrasenia.UseVisualStyleBackColor = true;
             this.chkMostrarContrasenia.CheckedChanged += new System.EventHandler(this.chkMostrarContrasenia_CheckedChanged);
-
             // 
             // frmInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(302, 350);
+            this.ClientSize = new System.Drawing.Size(226, 284);
             this.Controls.Add(this.chkMostrarContrasenia);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cmbPerfil);
@@ -175,14 +170,12 @@
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesión";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
 
         }
 

@@ -275,8 +275,7 @@ namespace pryMolinaERP
             Geo TEXT(50),
             Mail TEXT(100),
             Telefono TEXT(20),
-            Redes TEXT(50),
-            Activo YESNO)";
+            Redes TEXT(50)";
 
                 ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
                 ComandoBaseDatos.ExecuteNonQuery();
@@ -311,7 +310,7 @@ namespace pryMolinaERP
                     // Actualizar
                     sql = "UPDATE Personal SET Nombre=?, Apellido=?, Provincia=?, " +
                           "Localidad=?, Direccion=?, Geo=?, Mail=?, Telefono=?, " +
-                          "Redes=?, Activo=? WHERE DNI=?";
+                          "Redes=? WHERE DNI=?";
                 }
                 else
                 {
@@ -365,7 +364,85 @@ namespace pryMolinaERP
                 return false;
             }
         }
+        public List<string> ObtenerDNI()
+        {
+            List<string> dnis = new List<string>();
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+
+                string sql = "SELECT DNI FROM Personal WHERE DNI IS NOT NULL ORDER BY DNI";
+                ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
+                OleDbDataReader lector = ComandoBaseDatos.ExecuteReader();
+
+                while (lector.Read())
+                    dnis.Add(lector["DNI"].ToString());
+
+                lector.Close();
+                ConectorBaseDatos.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al obtener DNIs: " + error.Message);
+            }
+            return dnis;
+        }
+        public PersonalInfo ObtenerPersonalPorDNI(string dni)
+        {
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+
+                string sql = "SELECT * FROM Personal WHERE DNI = ?";
+                ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+
+                OleDbDataReader lector = ComandoBaseDatos.ExecuteReader();
+                if (lector.Read())
+                {
+                    var p = new PersonalInfo
+                    {
+                        DNI = lector["DNI"].ToString(),
+                        Nombre = lector["Nombre"].ToString(),
+                        Apellido = lector["Apellido"].ToString(),
+                        Provincia = lector["Provincia"].ToString(),
+                        Localidad = lector["Localidad"].ToString(),
+                        Direccion = lector["Direccion"].ToString(),
+                        Geo = lector["Geo"].ToString(),
+                        Mail = lector["Mail"].ToString(),
+                        Telefono = lector["Telefono"].ToString(),
+                        Redes = lector["Redes"].ToString()
+                    };
+                    lector.Close();
+                    ConectorBaseDatos.Close();
+                    return p;
+                }
+                lector.Close();
+                ConectorBaseDatos.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al obtener personal: " + error.Message);
+            }
+            return null;
+        }
     }
+    public class PersonalInfo
+    {
+        public string DNI { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Direccion { get; set; }
+        public string Geo { get; set; }
+        public string Mail { get; set; }
+        public string Telefono { get; set; }
+        public string Redes { get; set; }
+    }
+
     public class UsuarioInfo
     {
         public string NombreCompleto { get; set; }
