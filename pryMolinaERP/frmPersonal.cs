@@ -115,7 +115,15 @@ namespace pryMolinaERP
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            cmbContacto.Enabled = false;
+            
+            txtNombre.Enabled = true;
+            lblNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            lblApellido.Enabled = true; 
+            lblDNI.Enabled = true;
+            txtdni.Enabled = true;
+            tcDatos.Enabled = true;
+            btnEliminar.Visible = false;
 
             txtdni.Clear(); txtNombre.Clear(); txtApellido.Clear();
             cmbProv.SelectedIndex = -1; cmbLoc.Items.Clear();
@@ -171,7 +179,17 @@ namespace pryMolinaERP
             if (resultado)
                 MessageBox.Show("Personal guardado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           
+            
+            cmbContacto.Enabled = true;
+            txtNombre.Enabled = false;
+            lblNombre.Enabled = false;
+            txtApellido.Enabled = false;
+            lblApellido.Enabled = false;
+            lblDNI.Enabled = false;
+            txtdni.Enabled = false;
+            tcDatos.Enabled = false;
+            btnEliminar.Visible = false;
+            cmbContacto.Enabled = false;
         }
        
 
@@ -568,6 +586,14 @@ namespace pryMolinaERP
         private void btnEditar_Click(object sender, EventArgs e)
         {
             cmbContacto.Enabled = true;
+            btnEliminar.Visible = true;
+            txtNombre.Enabled = true;
+            lblNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            lblApellido.Enabled = true;
+            lblDNI.Enabled = true;
+            txtdni.Enabled = true;
+            tcDatos.Enabled = true;
         }
     }
 }
