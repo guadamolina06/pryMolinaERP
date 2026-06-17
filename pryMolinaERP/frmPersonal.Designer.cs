@@ -1,851 +1,932 @@
-﻿namespace pryMolinaERP
+namespace pryMolinaERP
 {
     partial class frmPersonal
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonal));
-            this.lblDNI = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtdni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.tbcADM = new System.Windows.Forms.TabControl();
-            this.tbpUsuario = new System.Windows.Forms.TabPage();
-            this.cmbContacto = new System.Windows.Forms.ComboBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblEstadoBD = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tcDatos = new System.Windows.Forms.TabControl();
+
+            this.tbcADM            = new System.Windows.Forms.TabControl();
+            this.tbpUsuario        = new System.Windows.Forms.TabPage();
+            this.tbpAuditoria      = new System.Windows.Forms.TabPage();
+            this.pnlToolbar        = new System.Windows.Forms.Panel();
+            this.btnNuevo          = new System.Windows.Forms.Button();
+            this.btnEditar         = new System.Windows.Forms.Button();
+            this.btnEliminar       = new System.Windows.Forms.Button();
+            this.lblContactoLbl    = new System.Windows.Forms.Label();
+            this.cmbContacto       = new System.Windows.Forms.ComboBox();
+            this.pnlIdentidad      = new System.Windows.Forms.Panel();
+            this.lblDNI            = new System.Windows.Forms.Label();
+            this.txtdni            = new System.Windows.Forms.TextBox();
+            this.lblNombre         = new System.Windows.Forms.Label();
+            this.txtNombre         = new System.Windows.Forms.TextBox();
+            this.lblApellido       = new System.Windows.Forms.Label();
+            this.txtApellido       = new System.Windows.Forms.TextBox();
+            this.tcDatos           = new System.Windows.Forms.TabControl();
             this.tpDatosPersonales = new System.Windows.Forms.TabPage();
-            this.gpbRedSocial = new System.Windows.Forms.GroupBox();
-            this.btnEliminarR = new System.Windows.Forms.Button();
-            this.tcRedes = new System.Windows.Forms.TabControl();
-            this.tpRed1 = new System.Windows.Forms.TabPage();
-            this.txturl = new System.Windows.Forms.TextBox();
-            this.lblurl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.cmbRedes = new System.Windows.Forms.ComboBox();
-            this.lblred = new System.Windows.Forms.Label();
-            this.tpplus = new System.Windows.Forms.TabPage();
-            this.gpbContacto = new System.Windows.Forms.GroupBox();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.tpDom = new System.Windows.Forms.TabPage();
-            this.tpDomicilio = new System.Windows.Forms.TabControl();
-            this.tpDom1 = new System.Windows.Forms.TabPage();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.cmbLoc = new System.Windows.Forms.ComboBox();
-            this.txtGeo = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.cmbProv = new System.Windows.Forms.ComboBox();
-            this.lblGeo = new System.Windows.Forms.Label();
-            this.lbllocalidad = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.lblProv = new System.Windows.Forms.Label();
-            this.tpdpus = new System.Windows.Forms.TabPage();
-            this.tbpAuditoria = new System.Windows.Forms.TabPage();
-            this.lblTotalRegistros = new System.Windows.Forms.Label();
-            this.dgvAuditoria = new System.Windows.Forms.DataGridView();
-            this.pnlFiltros = new System.Windows.Forms.Panel();
-            this.cmbFiltroAccion = new System.Windows.Forms.ComboBox();
-            this.btnFlitrar = new System.Windows.Forms.Button();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.lblDesde = new System.Windows.Forms.Label();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.chkFiltroFecha = new System.Windows.Forms.CheckBox();
-            this.txtFiltroUsuario = new System.Windows.Forms.TextBox();
-            this.lblFiltroAccion = new System.Windows.Forms.Label();
-            this.lblFiltroUsuario = new System.Windows.Forms.Label();
+            this.tpDom             = new System.Windows.Forms.TabPage();
+            this.gpbContacto       = new System.Windows.Forms.GroupBox();
+            this.lblMail           = new System.Windows.Forms.Label();
+            this.txtMail           = new System.Windows.Forms.TextBox();
+            this.lblTelefono       = new System.Windows.Forms.Label();
+            this.txtTelefono       = new System.Windows.Forms.TextBox();
+            this.gpbRedSocial      = new System.Windows.Forms.GroupBox();
+            this.tcRedes           = new System.Windows.Forms.TabControl();
+            this.tpRed1            = new System.Windows.Forms.TabPage();
+            this.lblred            = new System.Windows.Forms.Label();
+            this.cmbRedes          = new System.Windows.Forms.ComboBox();
+            this.lblUsuario        = new System.Windows.Forms.Label();
+            this.textBox1          = new System.Windows.Forms.TextBox();
+            this.lblurl            = new System.Windows.Forms.Label();
+            this.txturl            = new System.Windows.Forms.TextBox();
+            this.tpplus            = new System.Windows.Forms.TabPage();
+            this.btnEliminarR      = new System.Windows.Forms.Button();
+            this.tpDomicilio       = new System.Windows.Forms.TabControl();
+            this.tpDom1            = new System.Windows.Forms.TabPage();
+            this.lblProv           = new System.Windows.Forms.Label();
+            this.cmbProv           = new System.Windows.Forms.ComboBox();
+            this.lbllocalidad      = new System.Windows.Forms.Label();
+            this.cmbLoc            = new System.Windows.Forms.ComboBox();
+            this.lblDireccion      = new System.Windows.Forms.Label();
+            this.txtDireccion      = new System.Windows.Forms.TextBox();
+            this.lblGeo            = new System.Windows.Forms.Label();
+            this.txtGeo            = new System.Windows.Forms.TextBox();
+            this.lblTipo           = new System.Windows.Forms.Label();
+            this.cmbTipo           = new System.Windows.Forms.ComboBox();
+            this.tpdpus            = new System.Windows.Forms.TabPage();
+            this.btnGuardar        = new System.Windows.Forms.Button();
+            this.statusStrip1      = new System.Windows.Forms.StatusStrip();
+            this.lblEstadoBD       = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pnlFiltros        = new System.Windows.Forms.Panel();
+            this.lblFiltroUsuario  = new System.Windows.Forms.Label();
+            this.txtFiltroUsuario  = new System.Windows.Forms.TextBox();
+            this.lblFiltroAccion   = new System.Windows.Forms.Label();
+            this.cmbFiltroAccion   = new System.Windows.Forms.ComboBox();
+            this.chkFiltroFecha    = new System.Windows.Forms.CheckBox();
+            this.lblDesde          = new System.Windows.Forms.Label();
+            this.dtpDesde          = new System.Windows.Forms.DateTimePicker();
+            this.lblHasta          = new System.Windows.Forms.Label();
+            this.dtpHasta          = new System.Windows.Forms.DateTimePicker();
+            this.btnFlitrar           = new System.Windows.Forms.Button();
+            this.btnLimpiarFiltro     = new System.Windows.Forms.Button();
+            this.dgvAuditoria         = new System.Windows.Forms.DataGridView();
+            this.lblTotalRegistros    = new System.Windows.Forms.Label();
+            this.btnDesactivarUsuario = new System.Windows.Forms.Button();
+
             this.tbcADM.SuspendLayout();
             this.tbpUsuario.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.tbpAuditoria.SuspendLayout();
+            this.pnlToolbar.SuspendLayout();
+            this.pnlIdentidad.SuspendLayout();
             this.tcDatos.SuspendLayout();
             this.tpDatosPersonales.SuspendLayout();
+            this.tpDom.SuspendLayout();
+            this.gpbContacto.SuspendLayout();
             this.gpbRedSocial.SuspendLayout();
             this.tcRedes.SuspendLayout();
             this.tpRed1.SuspendLayout();
-            this.gpbContacto.SuspendLayout();
-            this.tpDom.SuspendLayout();
             this.tpDomicilio.SuspendLayout();
             this.tpDom1.SuspendLayout();
-            this.tbpAuditoria.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.pnlFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblDNI
-            // 
-            this.lblDNI.AutoSize = true;
-            this.lblDNI.Enabled = false;
-            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI.Location = new System.Drawing.Point(28, 102);
-            this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(29, 13);
-            this.lblDNI.TabIndex = 0;
-            this.lblDNI.Text = "DNI:";
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Enabled = false;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(379, 102);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
-            this.lblApellido.TabIndex = 1;
-            this.lblApellido.Text = "Apellido:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Enabled = false;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(205, 100);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // txtdni
-            // 
-            this.txtdni.Enabled = false;
-            this.txtdni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdni.Location = new System.Drawing.Point(81, 97);
-            this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(100, 20);
-            this.txtdni.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Enabled = false;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(258, 97);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Enabled = false;
-            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(432, 99);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 6;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
-            this.btnEliminar.Location = new System.Drawing.Point(318, 14);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+
+            // ── Paleta light ─────────────────────────────────────────────────
+            var BG_PAGE    = System.Drawing.Color.FromArgb(248, 249, 250);
+            var BG_WHITE   = System.Drawing.Color.White;
+            var BG_PANEL   = System.Drawing.Color.FromArgb(241, 245, 249);
+            var BG_HEADER  = System.Drawing.Color.FromArgb(37, 99, 235);
+            var ACCENT     = System.Drawing.Color.FromArgb(37, 99, 235);
+            var ACCENT_LT  = System.Drawing.Color.FromArgb(219, 234, 254);
+            var TEXT_PRI   = System.Drawing.Color.FromArgb(30, 41, 59);
+            var TEXT_SEC   = System.Drawing.Color.FromArgb(100, 116, 139);
+            var DANGER     = System.Drawing.Color.FromArgb(220, 38, 38);
+            var DANGER_LT  = System.Drawing.Color.FromArgb(254, 226, 226);
+            var BTN_GHOST  = System.Drawing.Color.FromArgb(226, 232, 240);
+            var BORDER     = System.Drawing.Color.FromArgb(203, 213, 225);
+            var BTN_NEW    = System.Drawing.Color.FromArgb(239, 246, 255);
+            var SUCCESS    = System.Drawing.Color.FromArgb(5, 150, 105);
+            var ROW_ALT    = System.Drawing.Color.FromArgb(241, 245, 249);
+
+            var fontBase  = new System.Drawing.Font("Segoe UI", 9F);
+            var fontBold  = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            var fontSmall = new System.Drawing.Font("Segoe UI", 8.5F);
+            var fontSmallBold = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
+            var fontInput = new System.Drawing.Font("Segoe UI", 9.5F);
+
+            // ════════════════════════════════════════════════════════════════
+            // TAB CONTROL PRINCIPAL
+            // ════════════════════════════════════════════════════════════════
+            this.tbcADM.Controls.Add(this.tbpUsuario);
+            this.tbcADM.Controls.Add(this.tbpAuditoria);
+            this.tbcADM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcADM.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tbcADM.Font = fontBase;
+            this.tbcADM.ItemSize = new System.Drawing.Size(120, 32);
+            this.tbcADM.Name = "tbcADM";
+            this.tbcADM.SelectedIndex = 0;
+            this.tbcADM.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tbcADM.TabIndex = 10;
+            this.tbcADM.SelectedIndexChanged += new System.EventHandler(this.tbcADM_SelectedIndexChanged_1);
+            this.tbcADM.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tbcADM_DrawItem);
+
+            // ── tbpUsuario ───────────────────────────────────────────────────
+            this.tbpUsuario.BackColor = BG_PAGE;
+            this.tbpUsuario.Controls.Add(this.btnGuardar);
+            this.tbpUsuario.Controls.Add(this.tcDatos);
+            this.tbpUsuario.Controls.Add(this.pnlIdentidad);
+            this.tbpUsuario.Controls.Add(this.pnlToolbar);
+            this.tbpUsuario.Controls.Add(this.statusStrip1);
+            this.tbpUsuario.Name = "tbpUsuario";
+            this.tbpUsuario.Padding = new System.Windows.Forms.Padding(12);
+            this.tbpUsuario.TabIndex = 0;
+            this.tbpUsuario.Text = "Personal";
+
+            // ── Toolbar ──────────────────────────────────────────────────────
+            this.pnlToolbar.BackColor = BG_WHITE;
+            this.pnlToolbar.Controls.Add(this.btnNuevo);
+            this.pnlToolbar.Controls.Add(this.btnEditar);
+            this.pnlToolbar.Controls.Add(this.btnEliminar);
+            this.pnlToolbar.Controls.Add(this.lblContactoLbl);
+            this.pnlToolbar.Controls.Add(this.cmbContacto);
+            this.pnlToolbar.Location = new System.Drawing.Point(12, 12);
+            this.pnlToolbar.Name = "pnlToolbar";
+            this.pnlToolbar.Size = new System.Drawing.Size(816, 56);
+            this.pnlToolbar.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
+
+            this.btnNuevo.BackColor = ACCENT;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = fontBold;
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(8, 10);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(120, 34);
+            this.btnNuevo.TabIndex = 8;
+            this.btnNuevo.Text = "+ Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+
+            this.btnEditar.BackColor = BTN_GHOST;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = fontBase;
+            this.btnEditar.ForeColor = TEXT_PRI;
+            this.btnEditar.Location = new System.Drawing.Point(136, 10);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(120, 34);
+            this.btnEditar.TabIndex = 12;
+            this.btnEditar.Text = "Editar contacto";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+
+            this.btnEliminar.BackColor = DANGER_LT;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = fontBase;
+            this.btnEliminar.ForeColor = DANGER;
+            this.btnEliminar.Location = new System.Drawing.Point(264, 10);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(137, 38);
+            this.btnEliminar.Size = new System.Drawing.Size(110, 34);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnNuevo.Location = new System.Drawing.Point(34, 16);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(137, 35);
-            this.btnNuevo.TabIndex = 8;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(593, 456);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(137, 38);
-            this.btnGuardar.TabIndex = 9;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // tbcADM
-            // 
-            this.tbcADM.Controls.Add(this.tbpUsuario);
-            this.tbcADM.Controls.Add(this.tbpAuditoria);
-            this.tbcADM.Location = new System.Drawing.Point(12, 12);
-            this.tbcADM.Name = "tbcADM";
-            this.tbcADM.SelectedIndex = 0;
-            this.tbcADM.Size = new System.Drawing.Size(748, 559);
-            this.tbcADM.TabIndex = 10;
-            this.tbcADM.SelectedIndexChanged += new System.EventHandler(this.tbcADM_SelectedIndexChanged_1);
-            // 
-            // tbpUsuario
-            // 
-            this.tbpUsuario.Controls.Add(this.cmbContacto);
-            this.tbpUsuario.Controls.Add(this.btnEditar);
-            this.tbpUsuario.Controls.Add(this.statusStrip1);
-            this.tbpUsuario.Controls.Add(this.tcDatos);
-            this.tbpUsuario.Controls.Add(this.txtdni);
-            this.tbpUsuario.Controls.Add(this.btnGuardar);
-            this.tbpUsuario.Controls.Add(this.lblDNI);
-            this.tbpUsuario.Controls.Add(this.btnNuevo);
-            this.tbpUsuario.Controls.Add(this.lblApellido);
-            this.tbpUsuario.Controls.Add(this.btnEliminar);
-            this.tbpUsuario.Controls.Add(this.lblNombre);
-            this.tbpUsuario.Controls.Add(this.txtApellido);
-            this.tbpUsuario.Controls.Add(this.txtNombre);
-            this.tbpUsuario.Location = new System.Drawing.Point(4, 22);
-            this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpUsuario.Size = new System.Drawing.Size(740, 533);
-            this.tbpUsuario.TabIndex = 0;
-            this.tbpUsuario.Text = "Usuario";
-            this.tbpUsuario.UseVisualStyleBackColor = true;
-            // 
-            // cmbContacto
-            // 
+
+            this.lblContactoLbl.AutoSize = true;
+            this.lblContactoLbl.Font = fontSmall;
+            this.lblContactoLbl.ForeColor = TEXT_SEC;
+            this.lblContactoLbl.Location = new System.Drawing.Point(520, 18);
+            this.lblContactoLbl.Name = "lblContactoLbl";
+            this.lblContactoLbl.Text = "Buscar por DNI:";
+
+            this.cmbContacto.BackColor = BG_WHITE;
             this.cmbContacto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbContacto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbContacto.Font = fontInput;
+            this.cmbContacto.ForeColor = TEXT_PRI;
             this.cmbContacto.FormattingEnabled = true;
-            this.cmbContacto.Location = new System.Drawing.Point(176, 56);
+            this.cmbContacto.Location = new System.Drawing.Point(630, 13);
             this.cmbContacto.Name = "cmbContacto";
-            this.cmbContacto.Size = new System.Drawing.Size(137, 21);
+            this.cmbContacto.Size = new System.Drawing.Size(174, 26);
             this.cmbContacto.TabIndex = 13;
             this.cmbContacto.SelectedIndexChanged += new System.EventHandler(this.cmbContacto_SelectedIndexChanged_1);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(176, 16);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(137, 31);
-            this.btnEditar.TabIndex = 12;
-            this.btnEditar.Text = "Editar contacto";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblEstadoBD});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 508);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(734, 22);
-            this.statusStrip1.TabIndex = 11;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblEstadoBD
-            // 
-            this.lblEstadoBD.Name = "lblEstadoBD";
-            this.lblEstadoBD.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tcDatos
-            // 
+
+            // ── Identidad ────────────────────────────────────────────────────
+            this.pnlIdentidad.BackColor = BG_WHITE;
+            this.pnlIdentidad.Controls.Add(this.lblDNI);
+            this.pnlIdentidad.Controls.Add(this.txtdni);
+            this.pnlIdentidad.Controls.Add(this.lblNombre);
+            this.pnlIdentidad.Controls.Add(this.txtNombre);
+            this.pnlIdentidad.Controls.Add(this.lblApellido);
+            this.pnlIdentidad.Controls.Add(this.txtApellido);
+            this.pnlIdentidad.Location = new System.Drawing.Point(12, 76);
+            this.pnlIdentidad.Name = "pnlIdentidad";
+            this.pnlIdentidad.Size = new System.Drawing.Size(816, 60);
+            this.pnlIdentidad.Padding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+
+            this.lblDNI.AutoSize = true;
+            this.lblDNI.Enabled = false;
+            this.lblDNI.Font = fontSmallBold;
+            this.lblDNI.ForeColor = TEXT_SEC;
+            this.lblDNI.Location = new System.Drawing.Point(12, 10);
+            this.lblDNI.Name = "lblDNI";
+            this.lblDNI.Text = "DNI";
+
+            this.txtdni.BackColor = BG_WHITE;
+            this.txtdni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtdni.Enabled = false;
+            this.txtdni.Font = fontInput;
+            this.txtdni.ForeColor = TEXT_PRI;
+            this.txtdni.Location = new System.Drawing.Point(12, 26);
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(140, 26);
+            this.txtdni.TabIndex = 4;
+
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Enabled = false;
+            this.lblNombre.Font = fontSmallBold;
+            this.lblNombre.ForeColor = TEXT_SEC;
+            this.lblNombre.Location = new System.Drawing.Point(170, 10);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Text = "NOMBRE";
+
+            this.txtNombre.BackColor = BG_WHITE;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Enabled = false;
+            this.txtNombre.Font = fontInput;
+            this.txtNombre.ForeColor = TEXT_PRI;
+            this.txtNombre.Location = new System.Drawing.Point(170, 26);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(220, 26);
+            this.txtNombre.TabIndex = 5;
+
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Enabled = false;
+            this.lblApellido.Font = fontSmallBold;
+            this.lblApellido.ForeColor = TEXT_SEC;
+            this.lblApellido.Location = new System.Drawing.Point(408, 10);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Text = "APELLIDO";
+
+            this.txtApellido.BackColor = BG_WHITE;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.Enabled = false;
+            this.txtApellido.Font = fontInput;
+            this.txtApellido.ForeColor = TEXT_PRI;
+            this.txtApellido.Location = new System.Drawing.Point(408, 26);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(220, 26);
+            this.txtApellido.TabIndex = 6;
+
+            // ── tcDatos ───────────────────────────────────────────────────────
             this.tcDatos.Controls.Add(this.tpDom);
             this.tcDatos.Controls.Add(this.tpDatosPersonales);
+            this.tcDatos.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tcDatos.Enabled = false;
-            this.tcDatos.Location = new System.Drawing.Point(31, 142);
+            this.tcDatos.Font = fontBase;
+            this.tcDatos.ItemSize = new System.Drawing.Size(150, 28);
+            this.tcDatos.Location = new System.Drawing.Point(12, 144);
             this.tcDatos.Name = "tcDatos";
             this.tcDatos.SelectedIndex = 0;
-            this.tcDatos.Size = new System.Drawing.Size(703, 309);
+            this.tcDatos.Size = new System.Drawing.Size(816, 360);
+            this.tcDatos.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcDatos.TabIndex = 10;
-            // 
-            // tpDatosPersonales
-            // 
-            this.tpDatosPersonales.Controls.Add(this.gpbRedSocial);
-            this.tpDatosPersonales.Controls.Add(this.gpbContacto);
-            this.tpDatosPersonales.Location = new System.Drawing.Point(4, 22);
-            this.tpDatosPersonales.Name = "tpDatosPersonales";
-            this.tpDatosPersonales.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDatosPersonales.Size = new System.Drawing.Size(624, 283);
-            this.tpDatosPersonales.TabIndex = 0;
-            this.tpDatosPersonales.Text = "Datos de Contacto";
-            this.tpDatosPersonales.UseVisualStyleBackColor = true;
-            // 
-            // gpbRedSocial
-            // 
-            this.gpbRedSocial.Controls.Add(this.btnEliminarR);
-            this.gpbRedSocial.Controls.Add(this.tcRedes);
-            this.gpbRedSocial.Location = new System.Drawing.Point(15, 94);
-            this.gpbRedSocial.Name = "gpbRedSocial";
-            this.gpbRedSocial.Size = new System.Drawing.Size(574, 182);
-            this.gpbRedSocial.TabIndex = 24;
-            this.gpbRedSocial.TabStop = false;
-            this.gpbRedSocial.Text = "Redes Sociales";
-            // 
-            // btnEliminarR
-            // 
-            this.btnEliminarR.Location = new System.Drawing.Point(9, 151);
-            this.btnEliminarR.Name = "btnEliminarR";
-            this.btnEliminarR.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarR.TabIndex = 1;
-            this.btnEliminarR.Text = "Eliminar";
-            this.btnEliminarR.UseVisualStyleBackColor = true;
-            this.btnEliminarR.Click += new System.EventHandler(this.btnEliminarR_Click);
-            // 
-            // tcRedes
-            // 
-            this.tcRedes.Controls.Add(this.tpRed1);
-            this.tcRedes.Controls.Add(this.tpplus);
-            this.tcRedes.Location = new System.Drawing.Point(6, 19);
-            this.tcRedes.Name = "tcRedes";
-            this.tcRedes.SelectedIndex = 0;
-            this.tcRedes.Size = new System.Drawing.Size(562, 126);
-            this.tcRedes.TabIndex = 0;
-            this.tcRedes.SelectedIndexChanged += new System.EventHandler(this.tcRedes_SelectedIndexChanged);
-            // 
-            // tpRed1
-            // 
-            this.tpRed1.Controls.Add(this.txturl);
-            this.tpRed1.Controls.Add(this.lblurl);
-            this.tpRed1.Controls.Add(this.textBox1);
-            this.tpRed1.Controls.Add(this.lblUsuario);
-            this.tpRed1.Controls.Add(this.cmbRedes);
-            this.tpRed1.Controls.Add(this.lblred);
-            this.tpRed1.Location = new System.Drawing.Point(4, 22);
-            this.tpRed1.Name = "tpRed1";
-            this.tpRed1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRed1.Size = new System.Drawing.Size(554, 100);
-            this.tpRed1.TabIndex = 0;
-            this.tpRed1.Text = "Red 1";
-            this.tpRed1.UseVisualStyleBackColor = true;
-            // 
-            // txturl
-            // 
-            this.txturl.Location = new System.Drawing.Point(71, 56);
-            this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(135, 20);
-            this.txturl.TabIndex = 7;
-            // 
-            // lblurl
-            // 
-            this.lblurl.AutoSize = true;
-            this.lblurl.Location = new System.Drawing.Point(32, 59);
-            this.lblurl.Name = "lblurl";
-            this.lblurl.Size = new System.Drawing.Size(32, 13);
-            this.lblurl.TabIndex = 6;
-            this.lblurl.Text = "URL:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(289, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(237, 21);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
-            this.lblUsuario.TabIndex = 4;
-            this.lblUsuario.Text = "Usuario:";
-            // 
-            // cmbRedes
-            // 
-            this.cmbRedes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRedes.FormattingEnabled = true;
-            this.cmbRedes.Location = new System.Drawing.Point(71, 16);
-            this.cmbRedes.Name = "cmbRedes";
-            this.cmbRedes.Size = new System.Drawing.Size(135, 21);
-            this.cmbRedes.TabIndex = 3;
-            // 
-            // lblred
-            // 
-            this.lblred.AutoSize = true;
-            this.lblred.Location = new System.Drawing.Point(35, 19);
-            this.lblred.Name = "lblred";
-            this.lblred.Size = new System.Drawing.Size(30, 13);
-            this.lblred.TabIndex = 2;
-            this.lblred.Text = "Red:";
-            // 
-            // tpplus
-            // 
-            this.tpplus.Location = new System.Drawing.Point(4, 22);
-            this.tpplus.Name = "tpplus";
-            this.tpplus.Padding = new System.Windows.Forms.Padding(3);
-            this.tpplus.Size = new System.Drawing.Size(554, 100);
-            this.tpplus.TabIndex = 1;
-            this.tpplus.Text = "+";
-            this.tpplus.UseVisualStyleBackColor = true;
-            // 
-            // gpbContacto
-            // 
-            this.gpbContacto.Controls.Add(this.txtMail);
-            this.gpbContacto.Controls.Add(this.lblMail);
-            this.gpbContacto.Controls.Add(this.txtTelefono);
-            this.gpbContacto.Controls.Add(this.lblTelefono);
-            this.gpbContacto.Location = new System.Drawing.Point(15, 25);
-            this.gpbContacto.Name = "gpbContacto";
-            this.gpbContacto.Size = new System.Drawing.Size(499, 63);
-            this.gpbContacto.TabIndex = 23;
-            this.gpbContacto.TabStop = false;
-            this.gpbContacto.Text = "Contacto";
-            // 
-            // txtMail
-            // 
-            this.txtMail.Location = new System.Drawing.Point(104, 19);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(130, 20);
-            this.txtMail.TabIndex = 5;
-            // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(42, 22);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(29, 13);
-            this.lblMail.TabIndex = 0;
-            this.lblMail.Text = "Mail:";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(343, 19);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(103, 20);
-            this.txtTelefono.TabIndex = 4;
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(266, 22);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(52, 13);
-            this.lblTelefono.TabIndex = 1;
-            this.lblTelefono.Text = "Teléfono:";
-            // 
-            // tpDom
-            // 
+            this.tcDatos.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tcDatos_DrawItem);
+
+            // ── tpDom ─────────────────────────────────────────────────────────
+            this.tpDom.BackColor = BG_PAGE;
             this.tpDom.Controls.Add(this.tpDomicilio);
-            this.tpDom.Location = new System.Drawing.Point(4, 22);
             this.tpDom.Name = "tpDom";
-            this.tpDom.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDom.Size = new System.Drawing.Size(695, 283);
+            this.tpDom.Padding = new System.Windows.Forms.Padding(8);
             this.tpDom.TabIndex = 1;
             this.tpDom.Text = "Domicilio";
-            this.tpDom.UseVisualStyleBackColor = true;
-            // 
-            // tpDomicilio
-            // 
+
             this.tpDomicilio.Controls.Add(this.tpDom1);
             this.tpDomicilio.Controls.Add(this.tpdpus);
-            this.tpDomicilio.Location = new System.Drawing.Point(14, 11);
+            this.tpDomicilio.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tpDomicilio.Font = fontBase;
+            this.tpDomicilio.ItemSize = new System.Drawing.Size(100, 26);
+            this.tpDomicilio.Location = new System.Drawing.Point(8, 8);
             this.tpDomicilio.Name = "tpDomicilio";
             this.tpDomicilio.SelectedIndex = 0;
-            this.tpDomicilio.Size = new System.Drawing.Size(667, 206);
+            this.tpDomicilio.Size = new System.Drawing.Size(790, 308);
+            this.tpDomicilio.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tpDomicilio.TabIndex = 22;
             this.tpDomicilio.SelectedIndexChanged += new System.EventHandler(this.tpDomicilio_SelectedIndexChanged);
-            // 
-            // tpDom1
-            // 
-            this.tpDom1.Controls.Add(this.cmbTipo);
-            this.tpDom1.Controls.Add(this.lblTipo);
-            this.tpDom1.Controls.Add(this.cmbLoc);
-            this.tpDom1.Controls.Add(this.txtGeo);
-            this.tpDom1.Controls.Add(this.txtDireccion);
-            this.tpDom1.Controls.Add(this.cmbProv);
-            this.tpDom1.Controls.Add(this.lblGeo);
-            this.tpDom1.Controls.Add(this.lbllocalidad);
-            this.tpDom1.Controls.Add(this.lblDireccion);
+            this.tpDomicilio.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tpDomicilio_DrawItem);
+
+            this.tpDom1.BackColor = BG_PAGE;
             this.tpDom1.Controls.Add(this.lblProv);
-            this.tpDom1.Location = new System.Drawing.Point(4, 22);
+            this.tpDom1.Controls.Add(this.cmbProv);
+            this.tpDom1.Controls.Add(this.lbllocalidad);
+            this.tpDom1.Controls.Add(this.cmbLoc);
+            this.tpDom1.Controls.Add(this.lblDireccion);
+            this.tpDom1.Controls.Add(this.txtDireccion);
+            this.tpDom1.Controls.Add(this.lblGeo);
+            this.tpDom1.Controls.Add(this.txtGeo);
+            this.tpDom1.Controls.Add(this.lblTipo);
+            this.tpDom1.Controls.Add(this.cmbTipo);
             this.tpDom1.Name = "tpDom1";
-            this.tpDom1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDom1.Size = new System.Drawing.Size(659, 180);
+            this.tpDom1.Padding = new System.Windows.Forms.Padding(16, 14, 16, 14);
             this.tpDom1.TabIndex = 0;
-            this.tpDom1.Text = "Domicilio 1";
-            this.tpDom1.UseVisualStyleBackColor = true;
-            // 
-            // cmbTipo
-            // 
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Pricipal",
-            "Laboral",
-            "Alternatibo",
-            "Fiscal"});
-            this.cmbTipo.Location = new System.Drawing.Point(133, 76);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(100, 21);
-            this.cmbTipo.TabIndex = 23;
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(18, 84);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(31, 13);
-            this.lblTipo.TabIndex = 22;
-            this.lblTipo.Text = "Tipo:";
-            // 
-            // cmbLoc
-            // 
-            this.cmbLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoc.FormattingEnabled = true;
-            this.cmbLoc.Location = new System.Drawing.Point(133, 47);
-            this.cmbLoc.Name = "cmbLoc";
-            this.cmbLoc.Size = new System.Drawing.Size(100, 21);
-            this.cmbLoc.TabIndex = 21;
-            // 
-            // txtGeo
-            // 
-            this.txtGeo.Location = new System.Drawing.Point(366, 50);
-            this.txtGeo.Name = "txtGeo";
-            this.txtGeo.Size = new System.Drawing.Size(100, 20);
-            this.txtGeo.TabIndex = 18;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(345, 16);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(100, 20);
-            this.txtDireccion.TabIndex = 19;
-            // 
-            // cmbProv
-            // 
+            this.tpDom1.Text = "Dom 1";
+
+            this.lblProv.AutoSize = true;
+            this.lblProv.Font = fontSmallBold;
+            this.lblProv.ForeColor = TEXT_SEC;
+            this.lblProv.Location = new System.Drawing.Point(16, 24);
+            this.lblProv.Name = "lblProv";
+            this.lblProv.Text = "PROVINCIA";
+
+            this.cmbProv.BackColor = BG_WHITE;
             this.cmbProv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbProv.Font = fontInput;
+            this.cmbProv.ForeColor = TEXT_PRI;
             this.cmbProv.FormattingEnabled = true;
-            this.cmbProv.Location = new System.Drawing.Point(133, 20);
+            this.cmbProv.Location = new System.Drawing.Point(16, 44);
             this.cmbProv.Name = "cmbProv";
-            this.cmbProv.Size = new System.Drawing.Size(100, 21);
+            this.cmbProv.Size = new System.Drawing.Size(180, 26);
             this.cmbProv.TabIndex = 20;
             this.cmbProv.SelectedIndexChanged += new System.EventHandler(this.cmbProv_SelectedIndexChanged);
-            // 
-            // lblGeo
-            // 
-            this.lblGeo.AutoSize = true;
-            this.lblGeo.Location = new System.Drawing.Point(280, 54);
-            this.lblGeo.Name = "lblGeo";
-            this.lblGeo.Size = new System.Drawing.Size(92, 13);
-            this.lblGeo.TabIndex = 16;
-            this.lblGeo.Text = "Geo(cordenadas):";
-            // 
-            // lbllocalidad
-            // 
+
             this.lbllocalidad.AutoSize = true;
-            this.lbllocalidad.Location = new System.Drawing.Point(18, 53);
+            this.lbllocalidad.Font = fontSmallBold;
+            this.lbllocalidad.ForeColor = TEXT_SEC;
+            this.lbllocalidad.Location = new System.Drawing.Point(210, 24);
             this.lbllocalidad.Name = "lbllocalidad";
-            this.lbllocalidad.Size = new System.Drawing.Size(56, 13);
-            this.lbllocalidad.TabIndex = 15;
-            this.lbllocalidad.Text = "Localidad:";
-            // 
-            // lblDireccion
-            // 
+            this.lbllocalidad.Text = "LOCALIDAD";
+
+            this.cmbLoc.BackColor = BG_WHITE;
+            this.cmbLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbLoc.Font = fontInput;
+            this.cmbLoc.ForeColor = TEXT_PRI;
+            this.cmbLoc.FormattingEnabled = true;
+            this.cmbLoc.Location = new System.Drawing.Point(210, 44);
+            this.cmbLoc.Name = "cmbLoc";
+            this.cmbLoc.Size = new System.Drawing.Size(180, 26);
+            this.cmbLoc.TabIndex = 21;
+
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(280, 16);
+            this.lblDireccion.Font = fontSmallBold;
+            this.lblDireccion.ForeColor = TEXT_SEC;
+            this.lblDireccion.Location = new System.Drawing.Point(16, 86);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(55, 13);
-            this.lblDireccion.TabIndex = 17;
-            this.lblDireccion.Text = "Dirección:";
-            // 
-            // lblProv
-            // 
-            this.lblProv.AutoSize = true;
-            this.lblProv.Location = new System.Drawing.Point(18, 20);
-            this.lblProv.Name = "lblProv";
-            this.lblProv.Size = new System.Drawing.Size(54, 13);
-            this.lblProv.TabIndex = 14;
-            this.lblProv.Text = "Provincia:";
-            // 
-            // tpdpus
-            // 
-            this.tpdpus.Location = new System.Drawing.Point(4, 22);
+            this.lblDireccion.Text = "DIRECCIÓN";
+
+            this.txtDireccion.BackColor = BG_WHITE;
+            this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDireccion.Font = fontInput;
+            this.txtDireccion.ForeColor = TEXT_PRI;
+            this.txtDireccion.Location = new System.Drawing.Point(16, 106);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(374, 26);
+            this.txtDireccion.TabIndex = 19;
+
+            this.lblGeo.AutoSize = true;
+            this.lblGeo.Font = fontSmallBold;
+            this.lblGeo.ForeColor = TEXT_SEC;
+            this.lblGeo.Location = new System.Drawing.Point(16, 148);
+            this.lblGeo.Name = "lblGeo";
+            this.lblGeo.Text = "COORDENADAS (GEO)";
+
+            this.txtGeo.BackColor = BG_WHITE;
+            this.txtGeo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGeo.Font = fontInput;
+            this.txtGeo.ForeColor = TEXT_PRI;
+            this.txtGeo.Location = new System.Drawing.Point(16, 168);
+            this.txtGeo.Name = "txtGeo";
+            this.txtGeo.Size = new System.Drawing.Size(374, 26);
+            this.txtGeo.TabIndex = 18;
+
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = fontSmallBold;
+            this.lblTipo.ForeColor = TEXT_SEC;
+            this.lblTipo.Location = new System.Drawing.Point(410, 24);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Text = "TIPO DE DOMICILIO";
+
+            this.cmbTipo.BackColor = BG_WHITE;
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbTipo.Font = fontInput;
+            this.cmbTipo.ForeColor = TEXT_PRI;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] { "Pricipal", "Laboral", "Alternatibo", "Fiscal" });
+            this.cmbTipo.Location = new System.Drawing.Point(410, 44);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(160, 26);
+            this.cmbTipo.TabIndex = 23;
+
+            this.tpdpus.BackColor = BG_PAGE;
             this.tpdpus.Name = "tpdpus";
             this.tpdpus.Padding = new System.Windows.Forms.Padding(3);
-            this.tpdpus.Size = new System.Drawing.Size(597, 180);
             this.tpdpus.TabIndex = 1;
             this.tpdpus.Text = "+";
-            this.tpdpus.UseVisualStyleBackColor = true;
-            // 
-            // tbpAuditoria
-            // 
+
+            // ── tpDatosPersonales ─────────────────────────────────────────────
+            this.tpDatosPersonales.BackColor = BG_PAGE;
+            this.tpDatosPersonales.Controls.Add(this.gpbContacto);
+            this.tpDatosPersonales.Controls.Add(this.gpbRedSocial);
+            this.tpDatosPersonales.Name = "tpDatosPersonales";
+            this.tpDatosPersonales.Padding = new System.Windows.Forms.Padding(8);
+            this.tpDatosPersonales.TabIndex = 0;
+            this.tpDatosPersonales.Text = "Contacto";
+
+            this.gpbContacto.BackColor = BG_WHITE;
+            this.gpbContacto.Controls.Add(this.lblMail);
+            this.gpbContacto.Controls.Add(this.txtMail);
+            this.gpbContacto.Controls.Add(this.lblTelefono);
+            this.gpbContacto.Controls.Add(this.txtTelefono);
+            this.gpbContacto.Font = fontBold;
+            this.gpbContacto.ForeColor = TEXT_SEC;
+            this.gpbContacto.Location = new System.Drawing.Point(12, 12);
+            this.gpbContacto.Name = "gpbContacto";
+            this.gpbContacto.Size = new System.Drawing.Size(760, 80);
+            this.gpbContacto.TabStop = false;
+            this.gpbContacto.Text = "Contacto";
+
+            this.lblMail.AutoSize = true;
+            this.lblMail.Font = fontSmallBold;
+            this.lblMail.ForeColor = TEXT_SEC;
+            this.lblMail.Location = new System.Drawing.Point(16, 22);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Text = "EMAIL";
+
+            this.txtMail.BackColor = BG_WHITE;
+            this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMail.Font = fontInput;
+            this.txtMail.ForeColor = TEXT_PRI;
+            this.txtMail.Location = new System.Drawing.Point(16, 40);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(280, 26);
+            this.txtMail.TabIndex = 5;
+
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = fontSmallBold;
+            this.lblTelefono.ForeColor = TEXT_SEC;
+            this.lblTelefono.Location = new System.Drawing.Point(320, 22);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Text = "TELÉFONO";
+
+            this.txtTelefono.BackColor = BG_WHITE;
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Font = fontInput;
+            this.txtTelefono.ForeColor = TEXT_PRI;
+            this.txtTelefono.Location = new System.Drawing.Point(320, 40);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(200, 26);
+            this.txtTelefono.TabIndex = 4;
+
+            this.gpbRedSocial.BackColor = BG_WHITE;
+            this.gpbRedSocial.Controls.Add(this.tcRedes);
+            this.gpbRedSocial.Controls.Add(this.btnEliminarR);
+            this.gpbRedSocial.Font = fontBold;
+            this.gpbRedSocial.ForeColor = TEXT_SEC;
+            this.gpbRedSocial.Location = new System.Drawing.Point(12, 104);
+            this.gpbRedSocial.Name = "gpbRedSocial";
+            this.gpbRedSocial.Size = new System.Drawing.Size(760, 210);
+            this.gpbRedSocial.TabStop = false;
+            this.gpbRedSocial.Text = "Redes Sociales";
+
+            this.tcRedes.Controls.Add(this.tpRed1);
+            this.tcRedes.Controls.Add(this.tpplus);
+            this.tcRedes.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tcRedes.Font = fontBase;
+            this.tcRedes.ItemSize = new System.Drawing.Size(80, 24);
+            this.tcRedes.Location = new System.Drawing.Point(8, 22);
+            this.tcRedes.Name = "tcRedes";
+            this.tcRedes.SelectedIndex = 0;
+            this.tcRedes.Size = new System.Drawing.Size(744, 148);
+            this.tcRedes.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tcRedes.TabIndex = 0;
+            this.tcRedes.SelectedIndexChanged += new System.EventHandler(this.tcRedes_SelectedIndexChanged);
+            this.tcRedes.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tcRedes_DrawItem);
+
+            this.tpRed1.BackColor = BG_PAGE;
+            this.tpRed1.Controls.Add(this.lblred);
+            this.tpRed1.Controls.Add(this.cmbRedes);
+            this.tpRed1.Controls.Add(this.lblUsuario);
+            this.tpRed1.Controls.Add(this.textBox1);
+            this.tpRed1.Controls.Add(this.lblurl);
+            this.tpRed1.Controls.Add(this.txturl);
+            this.tpRed1.Name = "tpRed1";
+            this.tpRed1.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.tpRed1.TabIndex = 0;
+            this.tpRed1.Text = "Red 1";
+
+            this.lblred.AutoSize = true;
+            this.lblred.Font = fontSmallBold;
+            this.lblred.ForeColor = TEXT_SEC;
+            this.lblred.Location = new System.Drawing.Point(12, 14);
+            this.lblred.Name = "lblred";
+            this.lblred.Text = "RED";
+
+            this.cmbRedes.BackColor = BG_WHITE;
+            this.cmbRedes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRedes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbRedes.Font = fontInput;
+            this.cmbRedes.ForeColor = TEXT_PRI;
+            this.cmbRedes.FormattingEnabled = true;
+            this.cmbRedes.Location = new System.Drawing.Point(60, 10);
+            this.cmbRedes.Name = "cmbRedes";
+            this.cmbRedes.Size = new System.Drawing.Size(170, 26);
+            this.cmbRedes.TabIndex = 3;
+
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = fontSmallBold;
+            this.lblUsuario.ForeColor = TEXT_SEC;
+            this.lblUsuario.Location = new System.Drawing.Point(250, 14);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Text = "USUARIO";
+
+            this.textBox1.BackColor = BG_WHITE;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = fontInput;
+            this.textBox1.ForeColor = TEXT_PRI;
+            this.textBox1.Location = new System.Drawing.Point(316, 10);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 26);
+            this.textBox1.TabIndex = 5;
+
+            this.lblurl.AutoSize = true;
+            this.lblurl.Font = fontSmallBold;
+            this.lblurl.ForeColor = TEXT_SEC;
+            this.lblurl.Location = new System.Drawing.Point(12, 54);
+            this.lblurl.Name = "lblurl";
+            this.lblurl.Text = "URL";
+
+            this.txturl.BackColor = BG_WHITE;
+            this.txturl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txturl.Font = fontInput;
+            this.txturl.ForeColor = TEXT_PRI;
+            this.txturl.Location = new System.Drawing.Point(60, 50);
+            this.txturl.Name = "txturl";
+            this.txturl.Size = new System.Drawing.Size(456, 26);
+            this.txturl.TabIndex = 7;
+
+            this.tpplus.BackColor = BG_PAGE;
+            this.tpplus.Name = "tpplus";
+            this.tpplus.Padding = new System.Windows.Forms.Padding(3);
+            this.tpplus.TabIndex = 1;
+            this.tpplus.Text = "+";
+
+            this.btnEliminarR.BackColor = DANGER_LT;
+            this.btnEliminarR.FlatAppearance.BorderSize = 0;
+            this.btnEliminarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarR.Font = fontSmall;
+            this.btnEliminarR.ForeColor = DANGER;
+            this.btnEliminarR.Location = new System.Drawing.Point(8, 174);
+            this.btnEliminarR.Name = "btnEliminarR";
+            this.btnEliminarR.Size = new System.Drawing.Size(110, 28);
+            this.btnEliminarR.TabIndex = 1;
+            this.btnEliminarR.Text = "Eliminar red";
+            this.btnEliminarR.UseVisualStyleBackColor = false;
+            this.btnEliminarR.Click += new System.EventHandler(this.btnEliminarR_Click);
+
+            // ── btnGuardar ───────────────────────────────────────────────────
+            this.btnGuardar.BackColor = ACCENT;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = fontBold;
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(688, 512);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(140, 36);
+            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+
+            // ── statusStrip1 ──────────────────────────────────────────────────
+            this.statusStrip1.BackColor = BG_WHITE;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.lblEstadoBD });
+            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(4, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(840, 24);
+            this.statusStrip1.TabIndex = 11;
+
+            this.lblEstadoBD.Font = fontSmall;
+            this.lblEstadoBD.ForeColor = TEXT_SEC;
+            this.lblEstadoBD.Name = "lblEstadoBD";
+            this.lblEstadoBD.Text = "  ●  Verificando conexión...";
+
+            // ════════════════════════════════════════════════════════════════
+            // TAB AUDITORÍA
+            // ════════════════════════════════════════════════════════════════
+            this.tbpAuditoria.BackColor = BG_PAGE;
             this.tbpAuditoria.Controls.Add(this.lblTotalRegistros);
+            this.tbpAuditoria.Controls.Add(this.btnDesactivarUsuario);
             this.tbpAuditoria.Controls.Add(this.dgvAuditoria);
             this.tbpAuditoria.Controls.Add(this.pnlFiltros);
-            this.tbpAuditoria.Location = new System.Drawing.Point(4, 22);
             this.tbpAuditoria.Name = "tbpAuditoria";
-            this.tbpAuditoria.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpAuditoria.Size = new System.Drawing.Size(740, 533);
+            this.tbpAuditoria.Padding = new System.Windows.Forms.Padding(10);
             this.tbpAuditoria.TabIndex = 1;
-            this.tbpAuditoria.Text = "Auditoria";
-            this.tbpAuditoria.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalRegistros
-            // 
-            this.lblTotalRegistros.AutoSize = true;
-            this.lblTotalRegistros.Location = new System.Drawing.Point(5, 508);
-            this.lblTotalRegistros.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalRegistros.Name = "lblTotalRegistros";
-            this.lblTotalRegistros.Size = new System.Drawing.Size(52, 13);
-            this.lblTotalRegistros.TabIndex = 2;
-            this.lblTotalRegistros.Text = "Registro: ";
-            this.lblTotalRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dgvAuditoria
-            // 
-            this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuditoria.Location = new System.Drawing.Point(5, 64);
-            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvAuditoria.Name = "dgvAuditoria";
-            this.dgvAuditoria.RowHeadersWidth = 51;
-            this.dgvAuditoria.RowTemplate.Height = 24;
-            this.dgvAuditoria.Size = new System.Drawing.Size(724, 433);
-            this.dgvAuditoria.TabIndex = 1;
-            // 
-            // pnlFiltros
-            // 
-            this.pnlFiltros.Controls.Add(this.cmbFiltroAccion);
-            this.pnlFiltros.Controls.Add(this.btnFlitrar);
-            this.pnlFiltros.Controls.Add(this.lblHasta);
-            this.pnlFiltros.Controls.Add(this.lblDesde);
-            this.pnlFiltros.Controls.Add(this.dtpHasta);
-            this.pnlFiltros.Controls.Add(this.dtpDesde);
-            this.pnlFiltros.Controls.Add(this.chkFiltroFecha);
+            this.tbpAuditoria.Text = "Auditoría";
+
+            this.pnlFiltros.BackColor = BG_WHITE;
+            this.pnlFiltros.Controls.Add(this.lblFiltroUsuario);
             this.pnlFiltros.Controls.Add(this.txtFiltroUsuario);
             this.pnlFiltros.Controls.Add(this.lblFiltroAccion);
-            this.pnlFiltros.Controls.Add(this.lblFiltroUsuario);
-            this.pnlFiltros.Location = new System.Drawing.Point(5, 6);
-            this.pnlFiltros.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFiltros.Controls.Add(this.cmbFiltroAccion);
+            this.pnlFiltros.Controls.Add(this.chkFiltroFecha);
+            this.pnlFiltros.Controls.Add(this.lblDesde);
+            this.pnlFiltros.Controls.Add(this.dtpDesde);
+            this.pnlFiltros.Controls.Add(this.lblHasta);
+            this.pnlFiltros.Controls.Add(this.dtpHasta);
+            this.pnlFiltros.Controls.Add(this.btnFlitrar);
+            this.pnlFiltros.Controls.Add(this.btnLimpiarFiltro);
+            this.pnlFiltros.Location = new System.Drawing.Point(10, 10);
             this.pnlFiltros.Name = "pnlFiltros";
-            this.pnlFiltros.Size = new System.Drawing.Size(724, 49);
-            this.pnlFiltros.TabIndex = 0;
-            // 
-            // cmbFiltroAccion
-            // 
-            this.cmbFiltroAccion.FormattingEnabled = true;
-            this.cmbFiltroAccion.Location = new System.Drawing.Point(184, 16);
-            this.cmbFiltroAccion.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbFiltroAccion.Name = "cmbFiltroAccion";
-            this.cmbFiltroAccion.Size = new System.Drawing.Size(92, 21);
-            this.cmbFiltroAccion.TabIndex = 11;
-            // 
-            // btnFlitrar
-            // 
-            this.btnFlitrar.Location = new System.Drawing.Point(659, 17);
-            this.btnFlitrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFlitrar.Name = "btnFlitrar";
-            this.btnFlitrar.Size = new System.Drawing.Size(56, 19);
-            this.btnFlitrar.TabIndex = 9;
-            this.btnFlitrar.Text = "Filtrar";
-            this.btnFlitrar.UseVisualStyleBackColor = true;
-            this.btnFlitrar.Click += new System.EventHandler(this.btnFlitrar_Click);
-            // 
-            // lblHasta
-            // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(499, 20);
-            this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(38, 13);
-            this.lblHasta.TabIndex = 8;
-            this.lblHasta.Text = "Hasta:";
-            // 
-            // lblDesde
-            // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(343, 20);
-            this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(41, 13);
-            this.lblDesde.TabIndex = 7;
-            this.lblDesde.Text = "Desde:";
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(546, 17);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(94, 20);
-            this.dtpHasta.TabIndex = 6;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(389, 17);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(94, 20);
-            this.dtpDesde.TabIndex = 5;
-            // 
-            // chkFiltroFecha
-            // 
-            this.chkFiltroFecha.AutoSize = true;
-            this.chkFiltroFecha.Location = new System.Drawing.Point(286, 18);
-            this.chkFiltroFecha.Margin = new System.Windows.Forms.Padding(2);
-            this.chkFiltroFecha.Name = "chkFiltroFecha";
-            this.chkFiltroFecha.Size = new System.Drawing.Size(59, 17);
-            this.chkFiltroFecha.TabIndex = 4;
-            this.chkFiltroFecha.Text = "Fecha:";
-            this.chkFiltroFecha.UseVisualStyleBackColor = true;
-            this.chkFiltroFecha.TextChanged += new System.EventHandler(this.chkFiltroFecha_TextChanged);
-            // 
-            // txtFiltroUsuario
-            // 
-            this.txtFiltroUsuario.Location = new System.Drawing.Point(54, 17);
-            this.txtFiltroUsuario.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFiltroUsuario.Name = "txtFiltroUsuario";
-            this.txtFiltroUsuario.Size = new System.Drawing.Size(76, 20);
-            this.txtFiltroUsuario.TabIndex = 2;
-            // 
-            // lblFiltroAccion
-            // 
-            this.lblFiltroAccion.AutoSize = true;
-            this.lblFiltroAccion.Location = new System.Drawing.Point(142, 20);
-            this.lblFiltroAccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFiltroAccion.Name = "lblFiltroAccion";
-            this.lblFiltroAccion.Size = new System.Drawing.Size(43, 13);
-            this.lblFiltroAccion.TabIndex = 1;
-            this.lblFiltroAccion.Text = "Acción:";
-            // 
-            // lblFiltroUsuario
-            // 
+            this.pnlFiltros.Size = new System.Drawing.Size(820, 52);
+            this.pnlFiltros.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+
             this.lblFiltroUsuario.AutoSize = true;
-            this.lblFiltroUsuario.Location = new System.Drawing.Point(7, 20);
-            this.lblFiltroUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFiltroUsuario.Font = fontSmallBold;
+            this.lblFiltroUsuario.ForeColor = TEXT_SEC;
+            this.lblFiltroUsuario.Location = new System.Drawing.Point(10, 14);
             this.lblFiltroUsuario.Name = "lblFiltroUsuario";
-            this.lblFiltroUsuario.Size = new System.Drawing.Size(46, 13);
-            this.lblFiltroUsuario.TabIndex = 0;
             this.lblFiltroUsuario.Text = "Usuario:";
-            // 
-            // frmPersonal
-            // 
+
+            this.txtFiltroUsuario.BackColor = BG_WHITE;
+            this.txtFiltroUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFiltroUsuario.Font = fontBase;
+            this.txtFiltroUsuario.ForeColor = TEXT_PRI;
+            this.txtFiltroUsuario.Location = new System.Drawing.Point(70, 11);
+            this.txtFiltroUsuario.Name = "txtFiltroUsuario";
+            this.txtFiltroUsuario.Size = new System.Drawing.Size(100, 22);
+            this.txtFiltroUsuario.TabIndex = 2;
+
+            this.lblFiltroAccion.AutoSize = true;
+            this.lblFiltroAccion.Font = fontSmallBold;
+            this.lblFiltroAccion.ForeColor = TEXT_SEC;
+            this.lblFiltroAccion.Location = new System.Drawing.Point(182, 14);
+            this.lblFiltroAccion.Name = "lblFiltroAccion";
+            this.lblFiltroAccion.Text = "Acción:";
+
+            this.cmbFiltroAccion.BackColor = BG_WHITE;
+            this.cmbFiltroAccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbFiltroAccion.Font = fontBase;
+            this.cmbFiltroAccion.ForeColor = TEXT_PRI;
+            this.cmbFiltroAccion.FormattingEnabled = true;
+            this.cmbFiltroAccion.Location = new System.Drawing.Point(234, 11);
+            this.cmbFiltroAccion.Name = "cmbFiltroAccion";
+            this.cmbFiltroAccion.Size = new System.Drawing.Size(140, 22);
+            this.cmbFiltroAccion.TabIndex = 11;
+
+            this.chkFiltroFecha.AutoSize = true;
+            this.chkFiltroFecha.BackColor = BG_WHITE;
+            this.chkFiltroFecha.Font = fontSmallBold;
+            this.chkFiltroFecha.ForeColor = TEXT_SEC;
+            this.chkFiltroFecha.Location = new System.Drawing.Point(388, 14);
+            this.chkFiltroFecha.Name = "chkFiltroFecha";
+            this.chkFiltroFecha.Text = "Fecha:";
+            this.chkFiltroFecha.UseVisualStyleBackColor = false;
+            this.chkFiltroFecha.TextChanged += new System.EventHandler(this.chkFiltroFecha_TextChanged);
+
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Font = fontSmallBold;
+            this.lblDesde.ForeColor = TEXT_SEC;
+            this.lblDesde.Location = new System.Drawing.Point(450, 14);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Text = "Desde:";
+
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(500, 11);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(94, 22);
+            this.dtpDesde.TabIndex = 5;
+
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Font = fontSmallBold;
+            this.lblHasta.ForeColor = TEXT_SEC;
+            this.lblHasta.Location = new System.Drawing.Point(602, 14);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Text = "Hasta:";
+
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(648, 11);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(94, 22);
+            this.dtpHasta.TabIndex = 6;
+
+            this.btnFlitrar.BackColor = ACCENT;
+            this.btnFlitrar.FlatAppearance.BorderSize = 0;
+            this.btnFlitrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFlitrar.Font = fontBold;
+            this.btnFlitrar.ForeColor = System.Drawing.Color.White;
+            this.btnFlitrar.Location = new System.Drawing.Point(752, 10);
+            this.btnFlitrar.Name = "btnFlitrar";
+            this.btnFlitrar.Size = new System.Drawing.Size(30, 24);
+            this.btnFlitrar.TabIndex = 9;
+            this.btnFlitrar.Text = "▶";
+            this.btnFlitrar.UseVisualStyleBackColor = false;
+            this.btnFlitrar.Click += new System.EventHandler(this.btnFlitrar_Click);
+
+            this.btnLimpiarFiltro.BackColor = BTN_GHOST;
+            this.btnLimpiarFiltro.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFiltro.Font = fontSmall;
+            this.btnLimpiarFiltro.ForeColor = TEXT_SEC;
+            this.btnLimpiarFiltro.Location = new System.Drawing.Point(784, 10);
+            this.btnLimpiarFiltro.Name = "btnLimpiarFiltro";
+            this.btnLimpiarFiltro.Size = new System.Drawing.Size(30, 24);
+            this.btnLimpiarFiltro.TabIndex = 99;
+            this.btnLimpiarFiltro.Text = "✕";
+            this.btnLimpiarFiltro.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltro.Click += new System.EventHandler(this.btnLimpiarFiltro_Click);
+
+            // ── dgvAuditoria ──────────────────────────────────────────────────
+            this.dgvAuditoria.BackgroundColor = BG_PAGE;
+            this.dgvAuditoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAuditoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAuditoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+
+            var hdrStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            hdrStyle.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            hdrStyle.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            hdrStyle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
+            hdrStyle.SelectionBackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            hdrStyle.SelectionForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.dgvAuditoria.ColumnHeadersDefaultCellStyle = hdrStyle;
+            this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAuditoria.ColumnHeadersHeight = 34;
+
+            var cellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            cellStyle.BackColor = System.Drawing.Color.White;
+            cellStyle.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            cellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            cellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
+            cellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.dgvAuditoria.DefaultCellStyle = cellStyle;
+
+            var altStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            altStyle.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
+            altStyle.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            altStyle.SelectionBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
+            altStyle.SelectionForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.dgvAuditoria.AlternatingRowsDefaultCellStyle = altStyle;
+
+            this.dgvAuditoria.AutoGenerateColumns = false;
+            this.dgvAuditoria.ReadOnly = true;
+            this.dgvAuditoria.AllowUserToAddRows = false;
+            this.dgvAuditoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAuditoria.RowHeadersVisible = false;
+            this.dgvAuditoria.GridColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.dgvAuditoria.EnableHeadersVisualStyles = false;
+            this.dgvAuditoria.Location = new System.Drawing.Point(10, 70);
+            this.dgvAuditoria.Name = "dgvAuditoria";
+            this.dgvAuditoria.RowTemplate.Height = 28;
+            this.dgvAuditoria.Size = new System.Drawing.Size(820, 480);
+            this.dgvAuditoria.TabIndex = 1;
+
+            this.lblTotalRegistros.AutoSize = true;
+            this.lblTotalRegistros.Font = fontSmall;
+            this.lblTotalRegistros.ForeColor = TEXT_SEC;
+            this.lblTotalRegistros.Location = new System.Drawing.Point(10, 558);
+            this.lblTotalRegistros.Name = "lblTotalRegistros";
+            this.lblTotalRegistros.Text = "Registros: —";
+
+            this.btnDesactivarUsuario.BackColor = DANGER_LT;
+            this.btnDesactivarUsuario.FlatAppearance.BorderSize = 0;
+            this.btnDesactivarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesactivarUsuario.Font = fontSmallBold;
+            this.btnDesactivarUsuario.ForeColor = DANGER;
+            this.btnDesactivarUsuario.Location = new System.Drawing.Point(622, 553);
+            this.btnDesactivarUsuario.Name = "btnDesactivarUsuario";
+            this.btnDesactivarUsuario.Size = new System.Drawing.Size(208, 28);
+            this.btnDesactivarUsuario.TabIndex = 100;
+            this.btnDesactivarUsuario.Text = "Desactivar usuario seleccionado";
+            this.btnDesactivarUsuario.UseVisualStyleBackColor = false;
+            this.btnDesactivarUsuario.Click += new System.EventHandler(this.btnDesactivarUsuario_Click);
+
+            // ── frmPersonal ───────────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(772, 574);
+            this.BackColor = BG_PAGE;
+            this.ClientSize = new System.Drawing.Size(860, 620);
             this.Controls.Add(this.tbcADM);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmPersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrador";
+            this.Text = "Molina ERP — Administración";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPersonal_FormClosing);
             this.Load += new System.EventHandler(this.frmPersonal_Load);
+
             this.tbcADM.ResumeLayout(false);
             this.tbpUsuario.ResumeLayout(false);
-            this.tbpUsuario.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.tbpAuditoria.ResumeLayout(false);
+            this.tbpAuditoria.PerformLayout();
+            this.pnlToolbar.ResumeLayout(false);
+            this.pnlToolbar.PerformLayout();
+            this.pnlIdentidad.ResumeLayout(false);
+            this.pnlIdentidad.PerformLayout();
             this.tcDatos.ResumeLayout(false);
             this.tpDatosPersonales.ResumeLayout(false);
+            this.tpDom.ResumeLayout(false);
+            this.gpbContacto.ResumeLayout(false);
+            this.gpbContacto.PerformLayout();
             this.gpbRedSocial.ResumeLayout(false);
             this.tcRedes.ResumeLayout(false);
             this.tpRed1.ResumeLayout(false);
             this.tpRed1.PerformLayout();
-            this.gpbContacto.ResumeLayout(false);
-            this.gpbContacto.PerformLayout();
-            this.tpDom.ResumeLayout(false);
             this.tpDomicilio.ResumeLayout(false);
             this.tpDom1.ResumeLayout(false);
             this.tpDom1.PerformLayout();
-            this.tbpAuditoria.ResumeLayout(false);
-            this.tbpAuditoria.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.pnlFiltros.ResumeLayout(false);
             this.pnlFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblDNI;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtdni;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TabControl tbcADM;
         private System.Windows.Forms.TabPage tbpUsuario;
         private System.Windows.Forms.TabPage tbpAuditoria;
-        private System.Windows.Forms.DataGridView dgvAuditoria;
-        private System.Windows.Forms.Panel pnlFiltros;
-        private System.Windows.Forms.Label lblFiltroAccion;
-        private System.Windows.Forms.Label lblFiltroUsuario;
-        private System.Windows.Forms.CheckBox chkFiltroFecha;
-        private System.Windows.Forms.TextBox txtFiltroUsuario;
-        private System.Windows.Forms.Label lblHasta;
-        private System.Windows.Forms.Label lblDesde;
-        private System.Windows.Forms.DateTimePicker dtpHasta;
-        private System.Windows.Forms.DateTimePicker dtpDesde;
-        private System.Windows.Forms.Button btnFlitrar;
-        private System.Windows.Forms.ComboBox cmbFiltroAccion;
-        private System.Windows.Forms.Label lblTotalRegistros;
+        private System.Windows.Forms.Panel pnlToolbar;
+        private System.Windows.Forms.Label lblContactoLbl;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ComboBox cmbContacto;
+        private System.Windows.Forms.Panel pnlIdentidad;
+        private System.Windows.Forms.Label lblDNI;
+        private System.Windows.Forms.TextBox txtdni;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TabControl tcDatos;
         private System.Windows.Forms.TabPage tpDatosPersonales;
+        private System.Windows.Forms.TabPage tpDom;
+        private System.Windows.Forms.GroupBox gpbContacto;
+        private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.GroupBox gpbRedSocial;
         private System.Windows.Forms.TabControl tcRedes;
         private System.Windows.Forms.TabPage tpRed1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox cmbRedes;
         private System.Windows.Forms.Label lblred;
-        private System.Windows.Forms.TabPage tpplus;
-        private System.Windows.Forms.GroupBox gpbContacto;
-        private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.TextBox txtGeo;
-        private System.Windows.Forms.TabPage tpDom;
-        private System.Windows.Forms.ComboBox cmbProv;
-        private System.Windows.Forms.Label lblProv;
-        private System.Windows.Forms.Label lbllocalidad;
-        private System.Windows.Forms.ComboBox cmbLoc;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.Label lblGeo;
-        private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox txturl;
+        private System.Windows.Forms.ComboBox cmbRedes;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblurl;
+        private System.Windows.Forms.TextBox txturl;
+        private System.Windows.Forms.TabPage tpplus;
         private System.Windows.Forms.Button btnEliminarR;
         private System.Windows.Forms.TabControl tpDomicilio;
         private System.Windows.Forms.TabPage tpDom1;
-        private System.Windows.Forms.TabPage tpdpus;
-        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label lblProv;
+        private System.Windows.Forms.ComboBox cmbProv;
+        private System.Windows.Forms.Label lbllocalidad;
+        private System.Windows.Forms.ComboBox cmbLoc;
+        private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label lblGeo;
+        private System.Windows.Forms.TextBox txtGeo;
         private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.TabPage tpdpus;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblEstadoBD;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.ComboBox cmbContacto;
+        private System.Windows.Forms.Panel pnlFiltros;
+        private System.Windows.Forms.Label lblFiltroUsuario;
+        private System.Windows.Forms.TextBox txtFiltroUsuario;
+        private System.Windows.Forms.Label lblFiltroAccion;
+        private System.Windows.Forms.ComboBox cmbFiltroAccion;
+        private System.Windows.Forms.CheckBox chkFiltroFecha;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.Button btnFlitrar;
+        private System.Windows.Forms.Button btnLimpiarFiltro;
+        private System.Windows.Forms.DataGridView dgvAuditoria;
+        private System.Windows.Forms.Label lblTotalRegistros;
+        private System.Windows.Forms.Button btnDesactivarUsuario;
     }
 }

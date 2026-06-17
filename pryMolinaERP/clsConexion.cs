@@ -388,6 +388,88 @@ namespace pryMolinaERP
             }
             return dnis;
         }
+        // ── Gestión de estado activo/inactivo de usuarios ────────────────────
+        public void AsegurarColumnaActivo()
+        {
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                new OleDbCommand("ALTER TABLE Usuario ADD COLUMN Activo BIT", ConectorBaseDatos).ExecuteNonQuery();
+                new OleDbCommand("UPDATE Usuario SET Activo = TRUE", ConectorBaseDatos).ExecuteNonQuery();
+                ConectorBaseDatos.Close();
+            }
+            catch
+            {
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+            }
+        }
+
+        public bool EsUsuarioActivo(string nombre)
+        {
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                ComandoBaseDatos = new OleDbCommand(
+                    "SELECT Activo FROM Usuario WHERE Nombre = ?", ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = nombre;
+                object resultado = ComandoBaseDatos.ExecuteScalar();
+                ConectorBaseDatos.Close();
+                if (resultado == null || resultado == DBNull.Value) return true;
+                return Convert.ToBoolean(resultado);
+            }
+            catch
+            {
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+                return true; // si no existe la columna aún, se permite acceso
+            }
+        }
+
+        public System.Collections.Generic.HashSet<string> ObtenerUsuariosInactivos()
+        {
+            var inactivos = new System.Collections.Generic.HashSet<string>(
+                System.StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                ComandoBaseDatos = new OleDbCommand(
+                    "SELECT Nombre FROM Usuario WHERE Activo = FALSE", ConectorBaseDatos);
+                OleDbDataReader lector = ComandoBaseDatos.ExecuteReader();
+                while (lector.Read())
+                    inactivos.Add(lector["Nombre"].ToString());
+                lector.Close();
+                ConectorBaseDatos.Close();
+            }
+            catch
+            {
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+            }
+            return inactivos;
+        }
+
+        public bool DesactivarUsuario(string nombre)
+        {
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                ComandoBaseDatos = new OleDbCommand(
+                    "UPDATE Usuario SET Activo = FALSE WHERE Nombre = ?", ConectorBaseDatos);
+                ComandoBaseDatos.Parameters.Add("p1", OleDbType.VarWChar).Value = nombre;
+                ComandoBaseDatos.ExecuteNonQuery();
+                ConectorBaseDatos.Close();
+                return true;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al desactivar usuario: " + error.Message);
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+                return false;
+            }
+        }
+
         public PersonalInfo ObtenerPersonalPorDNI(string dni)
         {
             try

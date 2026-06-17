@@ -14,6 +14,7 @@ namespace pryMolinaERP
         public DateTime Fecha { get; set; }
         public DateTime Hora { get; set; }
         public string Accion { get; set; }
+        public string Estado { get; set; } = "Activo";
     }
 
     public class clsAuditoria
