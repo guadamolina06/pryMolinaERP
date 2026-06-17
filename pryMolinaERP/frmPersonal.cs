@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace pryMolinaERP
         private void frmPersonal_Load(object sender, EventArgs e)
         {
             if (_usuario != null)
-                this.Text = $"Recursos Humanos  —  {_usuario.NombreCompleto}  |  Perfil: {_usuario.Perfil}";
+                this.Text = $"  —  {_usuario.NombreCompleto}  |  Perfil: {_usuario.Perfil}";
 
             CargarProvincias(); 
             cargarContactos();
@@ -34,6 +35,8 @@ namespace pryMolinaERP
                 "Facebook","Instagram","Twitter/X","LinkedIn","WhatsApp","TikTok","YouTube"
             });
             cmbRedes.SelectedIndex = -1;
+
+            new clsConexion().AsegurarColumnaActivo();
 
             // Configurar grilla de auditoría
             ConfigurarGrillaAuditoria();
@@ -227,9 +230,6 @@ namespace pryMolinaERP
             dgvAuditoria.AllowUserToAddRows = false;
             dgvAuditoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAuditoria.RowHeadersVisible = false;
-            dgvAuditoria.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dgvAuditoria.AlternatingRowsDefaultCellStyle.BackColor =
-                System.Drawing.Color.FromArgb(230, 240, 255);
 
             dgvAuditoria.Columns.Clear();
             dgvAuditoria.Columns.Add(new DataGridViewTextBoxColumn
@@ -274,8 +274,16 @@ namespace pryMolinaERP
             {
                 DataPropertyName = "Accion",
                 HeaderText = "Acción",
-                Width = 160
+                Width = 155
             });
+            dgvAuditoria.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Estado",
+                HeaderText = "Estado",
+                Width = 80
+            });
+
+            dgvAuditoria.CellFormatting += dgvAuditoria_CellFormatting;
         }
 
         private void CargarAuditoria()
@@ -290,10 +298,71 @@ namespace pryMolinaERP
 
             List<AuditoriaInfo> lista = aud.ObtenerRegistros(usuario, accion, desde, hasta);
 
+            var inactivos = new clsConexion().ObtenerUsuariosInactivos();
+            foreach (var item in lista)
+                item.Estado = inactivos.Contains(item.Usuario) ? "Inactivo" : "Activo";
+
             dgvAuditoria.DataSource = null;
             dgvAuditoria.DataSource = lista;
 
             lblTotalRegistros.Text = $"Registros: {lista.Count}";
+        }
+
+        private void dgvAuditoria_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvAuditoria.Rows[e.RowIndex];
+            var item = row.DataBoundItem as AuditoriaInfo;
+            if (item == null) return;
+
+            if (item.Estado == "Inactivo")
+            {
+                row.DefaultCellStyle.BackColor = Color.FromArgb(254, 226, 226);
+                row.DefaultCellStyle.ForeColor = Color.FromArgb(153, 27, 27);
+                row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(252, 165, 165);
+                row.DefaultCellStyle.SelectionForeColor = Color.FromArgb(127, 29, 29);
+            }
+            else
+            {
+                row.DefaultCellStyle.BackColor = Color.Empty;
+                row.DefaultCellStyle.ForeColor = Color.FromArgb(30, 41, 59);
+                row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(37, 99, 235);
+                row.DefaultCellStyle.SelectionForeColor = Color.White;
+            }
+        }
+
+        private void btnDesactivarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvAuditoria.CurrentRow == null) return;
+
+            var item = dgvAuditoria.CurrentRow.DataBoundItem as AuditoriaInfo;
+            if (item == null) return;
+
+            if (item.Estado == "Inactivo")
+            {
+                MessageBox.Show($"El usuario «{item.Usuario}» ya está inactivo.",
+                    "Usuario inactivo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var resp = MessageBox.Show(
+                $"¿Desea desactivar al usuario «{item.Usuario}»?\n\nEl usuario no podrá iniciar sesión.",
+                "Confirmar desactivación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+
+            if (resp != DialogResult.Yes) return;
+
+            if (new clsConexion().DesactivarUsuario(item.Usuario))
+            {
+                if (_usuario != null)
+                    new clsAuditoria().RegistrarEvento(
+                        _usuario.NombreCompleto,
+                        _usuario.Perfil,
+                        _usuario.NombreCompleto,
+                        $"Desactivó usuario: {item.Usuario}");
+
+                CargarAuditoria();
+            }
         }
 
 
@@ -369,49 +438,53 @@ namespace pryMolinaERP
         }
         private void tcRedes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Si el usuario seleccionó el tab "+"
             if (tcRedes.SelectedTab == tpplus)
-            {
-                AgregarTabRed();
-            }
+                BeginInvoke(new Action(AgregarTabRed));
         }
         private void AgregarTabRed()
         {
             _contadorRedes++;
 
-            // Crear nueva TabPage
-            TabPage nuevaTab = new TabPage($"Red {_contadorRedes}");
+            var bgDark   = Color.FromArgb(248, 249, 250);
+            var bgInput  = Color.White;
+            var textPri  = Color.FromArgb(30, 41, 59);
+            var textSec  = Color.FromArgb(100, 116, 139);
+            var danger   = Color.FromArgb(220, 38, 38);
+            var dangerBg = Color.FromArgb(254, 226, 226);
+            var font     = new Font("Segoe UI", 8.5F);
+            var fontIn   = new Font("Segoe UI", 9.5F);
 
-            // ── Controles internos ──
-            Label lblRed = new Label { Text = "Red:", AutoSize = true, Location = new System.Drawing.Point(47, 23) };
-            ComboBox cmb = new ComboBox { Location = new System.Drawing.Point(95, 20), Size = new System.Drawing.Size(179, 24), Name = $"cmbRedes_{_contadorRedes}", DropDownStyle = ComboBoxStyle.DropDownList };
+            TabPage nuevaTab = new TabPage($"Red {_contadorRedes}") { BackColor = bgDark };
+
+            Label lblRed = new Label { Text = "Red:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(12, 14) };
+            ComboBox cmb = new ComboBox { Location = new Point(60, 10), Size = new Size(170, 26), Name = $"cmbRedes_{_contadorRedes}", DropDownStyle = ComboBoxStyle.DropDownList, BackColor = bgInput, ForeColor = textPri, FlatStyle = FlatStyle.Flat, Font = fontIn };
             CargarCmbRedes(cmb);
 
-            Label lblUsr = new Label { Text = "Usuario:", AutoSize = true, Location = new System.Drawing.Point(316, 26) };
-            TextBox txtUsr = new TextBox { Location = new System.Drawing.Point(385, 23), Size = new System.Drawing.Size(195, 22), Name = $"txtUsuarioRed_{_contadorRedes}"};
+            Label lblUsr = new Label { Text = "Usuario:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(250, 14) };
+            TextBox txtUsr = new TextBox { Location = new Point(316, 10), Size = new Size(200, 26), Name = $"txtUsuarioRed_{_contadorRedes}", BackColor = bgInput, ForeColor = textPri, BorderStyle = BorderStyle.FixedSingle, Font = fontIn };
 
-            Label lblUrl = new Label { Text = "URL:", AutoSize = true, Location = new System.Drawing.Point(43, 73) };
-            TextBox txtUrl = new TextBox { Location = new System.Drawing.Point(95, 69), Size = new System.Drawing.Size(179, 22), Name = $"txtUrl_{_contadorRedes}" };
+            Label lblUrl = new Label { Text = "URL:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(12, 54) };
+            TextBox txtUrl = new TextBox { Location = new Point(60, 50), Size = new Size(456, 26), Name = $"txtUrl_{_contadorRedes}", BackColor = bgInput, ForeColor = textPri, BorderStyle = BorderStyle.FixedSingle, Font = fontIn };
 
-            // Botón eliminar esta pestaña
             Button btnElim = new Button
             {
                 Text = "Eliminar red",
-                Location = new System.Drawing.Point(385, 65),
-                Size = new System.Drawing.Size(100, 28),
-                Tag = nuevaTab
+                Location = new Point(8, 84),
+                Size = new Size(110, 28),
+                Tag = nuevaTab,
+                BackColor = dangerBg,
+                ForeColor = danger,
+                FlatStyle = FlatStyle.Flat,
+                Font = font,
+                UseVisualStyleBackColor = false
             };
+            btnElim.FlatAppearance.BorderSize = 0;
             btnElim.Click += btnEliminarR_Click;
 
-            nuevaTab.Controls.AddRange(new System.Windows.Forms.Control[] {
-                lblRed, cmb, lblUsr, txtUsr, lblUrl, txtUrl, btnElim
-            });
+            nuevaTab.Controls.AddRange(new Control[] { lblRed, cmb, lblUsr, txtUsr, lblUrl, txtUrl, btnElim });
 
-            // Insertar antes del tab "+"
             int posPlus = tcRedes.TabPages.IndexOf(tpplus);
             tcRedes.TabPages.Insert(posPlus, nuevaTab);
-
-            // Seleccionar la nueva pestaña
             tcRedes.SelectedTab = nuevaTab;
         }
 
@@ -446,20 +519,29 @@ namespace pryMolinaERP
         private void tpDomicilio_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tpDomicilio.SelectedTab == tpdpus)
-                AgregarTabDom();
+                BeginInvoke(new Action(AgregarTabDom));
         }
         private void AgregarTabDom()
         {
             _contadorDoms++;
 
-            TabPage nuevaTab = new TabPage($"Dom {_contadorDoms}");
+            var bgDark   = Color.FromArgb(248, 249, 250);
+            var bgInput  = Color.White;
+            var textPri  = Color.FromArgb(30, 41, 59);
+            var textSec  = Color.FromArgb(100, 116, 139);
+            var danger   = Color.FromArgb(220, 38, 38);
+            var dangerBg = Color.FromArgb(254, 226, 226);
+            var font     = new Font("Segoe UI", 8.5F);
+            var fontIn   = new Font("Segoe UI", 9.5F);
 
-            Label lblProv = new Label { Text = "Provincia:", AutoSize = true, Location = new System.Drawing.Point(24, 25) };
-            ComboBox cmbProv2 = new ComboBox { Location = new System.Drawing.Point(177, 25), Size = new System.Drawing.Size(132, 24), Name = $"cmbProv_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
+            TabPage nuevaTab = new TabPage($"Dom {_contadorDoms}") { BackColor = bgDark };
+
+            Label lblProv = new Label { Text = "Provincia:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(16, 24) };
+            ComboBox cmbProv2 = new ComboBox { Location = new Point(16, 44), Size = new Size(180, 26), Name = $"cmbProv_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList, BackColor = bgInput, ForeColor = textPri, FlatStyle = FlatStyle.Flat, Font = fontIn };
             try { clsConexion cx = new clsConexion(); foreach (string p in cx.ObtenerProvincias()) cmbProv2.Items.Add(p); } catch { }
 
-            Label lblLoc = new Label { Text = "Localidad:", AutoSize = true, Location = new System.Drawing.Point(24, 65) };
-            ComboBox cmbLoc2 = new ComboBox { Location = new System.Drawing.Point(177, 58), Size = new System.Drawing.Size(132, 24), Name = $"cmbLoc_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
+            Label lblLoc = new Label { Text = "Localidad:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(210, 24) };
+            ComboBox cmbLoc2 = new ComboBox { Location = new Point(210, 44), Size = new Size(180, 26), Name = $"cmbLoc_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList, BackColor = bgInput, ForeColor = textPri, FlatStyle = FlatStyle.Flat, Font = fontIn };
             cmbProv2.SelectedIndexChanged += (s, ev) =>
             {
                 cmbLoc2.Items.Clear();
@@ -475,29 +557,36 @@ namespace pryMolinaERP
                     catch { }
                 }
             };
-            Label lblDir = new Label { Text = "Dirección:", AutoSize = true, Location = new System.Drawing.Point(373, 20) };
-            TextBox txtDir = new TextBox { Location = new System.Drawing.Point(460, 20), Size = new System.Drawing.Size(132, 22), Name = $"txtDir_{_contadorDoms}" };
 
-            Label lblGeo2 = new Label { Text = "Geo(cordenadas):", AutoSize = true, Location = new System.Drawing.Point(373, 66) };
-            TextBox txtGeo2 = new TextBox { Location = new System.Drawing.Point(488, 62), Size = new System.Drawing.Size(132, 22), Name = $"txtGeo_{_contadorDoms}" };
+            Label lblDir = new Label { Text = "Dirección:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(16, 86) };
+            TextBox txtDir = new TextBox { Location = new Point(16, 106), Size = new Size(374, 26), Name = $"txtDir_{_contadorDoms}", BackColor = bgInput, ForeColor = textPri, BorderStyle = BorderStyle.FixedSingle, Font = fontIn };
 
-            Label lblTipo2 = new Label { Text = "Tipo:", AutoSize = true, Location = new System.Drawing.Point(24, 103) };
-            ComboBox cmbTipo2 = new ComboBox { Location = new System.Drawing.Point(177, 94), Size = new System.Drawing.Size(132, 24), Name = $"cmbTipo_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList };
+            Label lblGeo2 = new Label { Text = "Coordenadas (Geo):", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(16, 148) };
+            TextBox txtGeo2 = new TextBox { Location = new Point(16, 168), Size = new Size(374, 26), Name = $"txtGeo_{_contadorDoms}", BackColor = bgInput, ForeColor = textPri, BorderStyle = BorderStyle.FixedSingle, Font = fontIn };
+
+            Label lblTipo2 = new Label { Text = "Tipo:", AutoSize = true, Font = font, ForeColor = textSec, Location = new Point(410, 24) };
+            ComboBox cmbTipo2 = new ComboBox { Location = new Point(410, 44), Size = new Size(160, 26), Name = $"cmbTipo_{_contadorDoms}", DropDownStyle = ComboBoxStyle.DropDownList, BackColor = bgInput, ForeColor = textPri, FlatStyle = FlatStyle.Flat, Font = fontIn };
             cmbTipo2.Items.AddRange(new object[] { "Pricipal", "Laboral", "Alternatibo", "Fiscal" });
 
             Button btnElim = new Button
             {
                 Text = "Eliminar dom.",
-                Location = new System.Drawing.Point(24, 130),
-                Size = new System.Drawing.Size(100, 26),
-                Tag = nuevaTab
+                Location = new Point(8, 210),
+                Size = new Size(120, 28),
+                Tag = nuevaTab,
+                BackColor = dangerBg,
+                ForeColor = danger,
+                FlatStyle = FlatStyle.Flat,
+                Font = font,
+                UseVisualStyleBackColor = false
             };
+            btnElim.FlatAppearance.BorderSize = 0;
             btnElim.Click += btnEliminarD_Click;
 
-            nuevaTab.Controls.AddRange(new System.Windows.Forms.Control[] {
-               lblProv, cmbProv2, lblLoc, cmbLoc2,
-              lblDir, txtDir, lblGeo2, txtGeo2,
-               lblTipo2, cmbTipo2, btnElim
+            nuevaTab.Controls.AddRange(new Control[] {
+                lblProv, cmbProv2, lblLoc, cmbLoc2,
+                lblDir, txtDir, lblGeo2, txtGeo2,
+                lblTipo2, cmbTipo2, btnElim
             });
 
             int posPlus = tpDomicilio.TabPages.IndexOf(tpdpus);
@@ -535,6 +624,56 @@ namespace pryMolinaERP
         {
             Application.Exit();
         }
+
+        // ── Tab drawing helpers (light theme) ───────────────────────────────
+        private static readonly Color _tabBg       = Color.FromArgb(241, 245, 249);
+        private static readonly Color _tabSelected = Color.White;
+        private static readonly Color _tabAccent   = Color.FromArgb(37, 99, 235);
+        private static readonly Color _tabText     = Color.FromArgb(30, 41, 59);
+        private static readonly Color _tabTextDim  = Color.FromArgb(100, 116, 139);
+
+        private void DrawDarkTab(DrawItemEventArgs e, TabControl tc)
+        {
+            if (e.Index < 0 || e.Index >= tc.TabPages.Count) return;
+            bool selected = (e.State & DrawItemState.Selected) != 0;
+            using (var bgBrush = new SolidBrush(selected ? _tabSelected : _tabBg))
+                e.Graphics.FillRectangle(bgBrush, e.Bounds);
+
+            if (selected)
+            {
+                using (var accentPen = new Pen(_tabAccent, 2))
+                    e.Graphics.DrawLine(accentPen, e.Bounds.Left, e.Bounds.Bottom - 1,
+                        e.Bounds.Right, e.Bounds.Bottom - 1);
+            }
+
+            string text = tc.TabPages[e.Index].Text;
+            var textColor = selected ? _tabText : _tabTextDim;
+            var font = selected
+                ? new Font("Segoe UI", 9F, FontStyle.Bold)
+                : new Font("Segoe UI", 9F);
+            using (font)
+            using (var textBrush = new SolidBrush(textColor))
+            {
+                var sf = new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                };
+                e.Graphics.DrawString(text, font, textBrush, e.Bounds, sf);
+            }
+        }
+
+        private void tbcADM_DrawItem(object sender, DrawItemEventArgs e)
+            => DrawDarkTab(e, (TabControl)sender);
+
+        private void tcDatos_DrawItem(object sender, DrawItemEventArgs e)
+            => DrawDarkTab(e, (TabControl)sender);
+
+        private void tpDomicilio_DrawItem(object sender, DrawItemEventArgs e)
+            => DrawDarkTab(e, (TabControl)sender);
+
+        private void tcRedes_DrawItem(object sender, DrawItemEventArgs e)
+            => DrawDarkTab(e, (TabControl)sender);
 
         private void cmbContacto_SelectedIndexChanged_1(object sender, EventArgs e)
         {

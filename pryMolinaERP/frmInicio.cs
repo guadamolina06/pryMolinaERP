@@ -73,6 +73,16 @@ namespace pryMolinaERP
 
             if (info != null)
             {
+                if (!new clsConexion().EsUsuarioActivo(usuario))
+                {
+                    MessageBox.Show(
+                        $"El usuario «{usuario}» está desactivado y no puede iniciar sesión.\nContacte al administrador.",
+                        "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtContrasenia.Clear();
+                    txtContrasenia.Focus();
+                    return;
+                }
+
                 clsAuditoria aud = new clsAuditoria();
                 info.IdSesion = aud.RegistrarEvento(
                     usuario,
@@ -83,8 +93,6 @@ namespace pryMolinaERP
                 frmPersonal frmPrincipal = new frmPersonal(info);
                 frmPrincipal.Show();
                 this.Hide();
-
-               
             }
             else
             {
@@ -114,10 +122,11 @@ namespace pryMolinaERP
 
         private void ActualizarEtiquetaIntentos()
         {
+            lblInt.Text = "";
             lblIntentos.Text = $"Intentos restantes: {_IntentosRestantes}";
             lblIntentos.ForeColor = _IntentosRestantes == 1
-                ? System.Drawing.Color.Red
-                : System.Drawing.Color.DarkSlateGray;
+                ? System.Drawing.Color.FromArgb(220, 38, 38)
+                : System.Drawing.Color.FromArgb(100, 116, 139);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
