@@ -17,6 +17,7 @@ namespace pryMolinaERP
             ActualizarEtiquetaIntentos();
             CargarPerfiles();
             this.AcceptButton = btnIngrasar;
+     
         }
 
         private void CargarPerfiles()

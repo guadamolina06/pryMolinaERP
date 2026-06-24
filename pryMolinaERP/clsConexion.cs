@@ -345,10 +345,20 @@ namespace pryMolinaERP
 
         public bool EliminarPersonal(string dni)
         {
+            AsegurarTablasContacto();
             try
             {
                 ConectarBaseDatos();
                 ConectorBaseDatos.Open();
+
+                // Borrar primero los registros hijos (domicilios y redes)
+                var cmdDom = new OleDbCommand("DELETE FROM Domicilio WHERE DNI = ?", ConectorBaseDatos);
+                cmdDom.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                cmdDom.ExecuteNonQuery();
+
+                var cmdRed = new OleDbCommand("DELETE FROM RedSocial WHERE DNI = ?", ConectorBaseDatos);
+                cmdRed.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                cmdRed.ExecuteNonQuery();
 
                 string sql = "DELETE FROM Personal WHERE DNI = ?";
                 ComandoBaseDatos = new OleDbCommand(sql, ConectorBaseDatos);
@@ -510,7 +520,192 @@ namespace pryMolinaERP
             }
             return null;
         }
+        // ── Domicilios y Redes (varios por persona) ──────────────────────────
+        public void AsegurarTablasContacto()
+        {
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                try
+                {
+                    new OleDbCommand(@"CREATE TABLE Domicilio (
+                IdDomicilio AUTOINCREMENT PRIMARY KEY,
+                DNI       TEXT(20),
+                Provincia TEXT(50),
+                Localidad TEXT(50),
+                Direccion TEXT(100),
+                Geo       TEXT(50),
+                Tipo      TEXT(50))", ConectorBaseDatos).ExecuteNonQuery();
+                }
+                catch { /* la tabla ya existe */ }
+                try
+                {
+                    new OleDbCommand(@"CREATE TABLE RedSocial (
+                IdRed   AUTOINCREMENT PRIMARY KEY,
+                DNI     TEXT(20),
+                Red     TEXT(50),
+                Usuario TEXT(100),
+                Url     TEXT(255))", ConectorBaseDatos).ExecuteNonQuery();
+                }
+                catch { /* la tabla ya existe */ }
+                ConectorBaseDatos.Close();
+            }
+            catch
+            {
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+            }
+        }
+
+        public bool GuardarDomicilios(string dni, List<DomicilioInfo> domicilios)
+        {
+            if (string.IsNullOrWhiteSpace(dni)) return false;
+            AsegurarTablasContacto();
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+
+                var cmdDel = new OleDbCommand("DELETE FROM Domicilio WHERE DNI = ?", ConectorBaseDatos);
+                cmdDel.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                cmdDel.ExecuteNonQuery();
+
+                if (domicilios != null)
+                {
+                    foreach (var d in domicilios)
+                    {
+                        var cmd = new OleDbCommand(
+                            "INSERT INTO Domicilio (DNI, Provincia, Localidad, Direccion, Geo, Tipo) " +
+                            "VALUES (?, ?, ?, ?, ?, ?)", ConectorBaseDatos);
+                        cmd.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                        cmd.Parameters.Add("p2", OleDbType.VarWChar).Value = d.Provincia ?? "";
+                        cmd.Parameters.Add("p3", OleDbType.VarWChar).Value = d.Localidad ?? "";
+                        cmd.Parameters.Add("p4", OleDbType.VarWChar).Value = d.Direccion ?? "";
+                        cmd.Parameters.Add("p5", OleDbType.VarWChar).Value = d.Geo ?? "";
+                        cmd.Parameters.Add("p6", OleDbType.VarWChar).Value = d.Tipo ?? "";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                ConectorBaseDatos.Close();
+                return true;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al guardar domicilios: " + error.Message);
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+                return false;
+            }
+        }
+
+        public bool GuardarRedes(string dni, List<RedInfo> redes)
+        {
+            if (string.IsNullOrWhiteSpace(dni)) return false;
+            AsegurarTablasContacto();
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+
+                var cmdDel = new OleDbCommand("DELETE FROM RedSocial WHERE DNI = ?", ConectorBaseDatos);
+                cmdDel.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                cmdDel.ExecuteNonQuery();
+
+                if (redes != null)
+                {
+                    foreach (var r in redes)
+                    {
+                        var cmd = new OleDbCommand(
+                            "INSERT INTO RedSocial (DNI, Red, Usuario, Url) VALUES (?, ?, ?, ?)",
+                            ConectorBaseDatos);
+                        cmd.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                        cmd.Parameters.Add("p2", OleDbType.VarWChar).Value = r.Red ?? "";
+                        cmd.Parameters.Add("p3", OleDbType.VarWChar).Value = r.Usuario ?? "";
+                        cmd.Parameters.Add("p4", OleDbType.VarWChar).Value = r.Url ?? "";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                ConectorBaseDatos.Close();
+                return true;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al guardar redes: " + error.Message);
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+                return false;
+            }
+        }
+
+        public List<DomicilioInfo> ObtenerDomicilios(string dni)
+        {
+            var lista = new List<DomicilioInfo>();
+            AsegurarTablasContacto();
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                var cmd = new OleDbCommand(
+                    "SELECT Provincia, Localidad, Direccion, Geo, Tipo " +
+                    "FROM Domicilio WHERE DNI = ? ORDER BY IdDomicilio", ConectorBaseDatos);
+                cmd.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                var lector = cmd.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new DomicilioInfo
+                    {
+                        Provincia = lector["Provincia"].ToString(),
+                        Localidad = lector["Localidad"].ToString(),
+                        Direccion = lector["Direccion"].ToString(),
+                        Geo = lector["Geo"].ToString(),
+                        Tipo = lector["Tipo"].ToString()
+                    });
+                }
+                lector.Close();
+                ConectorBaseDatos.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al obtener domicilios: " + error.Message);
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+            }
+            return lista;
+        }
+
+        public List<RedInfo> ObtenerRedes(string dni)
+        {
+            var lista = new List<RedInfo>();
+            AsegurarTablasContacto();
+            try
+            {
+                ConectarBaseDatos();
+                ConectorBaseDatos.Open();
+                var cmd = new OleDbCommand(
+                    "SELECT Red, Usuario, Url FROM RedSocial WHERE DNI = ? ORDER BY IdRed",
+                    ConectorBaseDatos);
+                cmd.Parameters.Add("p1", OleDbType.VarWChar).Value = dni;
+                var lector = cmd.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new RedInfo
+                    {
+                        Red = lector["Red"].ToString(),
+                        Usuario = lector["Usuario"].ToString(),
+                        Url = lector["Url"].ToString()
+                    });
+                }
+                lector.Close();
+                ConectorBaseDatos.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al obtener redes: " + error.Message);
+                try { if (ConectorBaseDatos != null) ConectorBaseDatos.Close(); } catch { }
+            }
+            return lista;
+        }
     }
+
     public class PersonalInfo
     {
         public string DNI { get; set; }
@@ -531,6 +726,21 @@ namespace pryMolinaERP
         public string Perfil { get; set; }
         public DateTime FechaIngreso { get; set; }
         public int IdSesion { get; set; }
+    }
+    public class DomicilioInfo
+    {
+        public string Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Direccion { get; set; }
+        public string Geo { get; set; }
+        public string Tipo { get; set; }
+    }
+
+    public class RedInfo
+    {
+        public string Red { get; set; }
+        public string Usuario { get; set; }
+        public string Url { get; set; }
     }
 
 }

@@ -37,6 +37,7 @@ namespace pryMolinaERP
             cmbRedes.SelectedIndex = -1;
 
             new clsConexion().AsegurarColumnaActivo();
+            new clsConexion().AsegurarTablasContacto();
 
             // Configurar grilla de auditoría
             ConfigurarGrillaAuditoria();
@@ -178,11 +179,17 @@ namespace pryMolinaERP
                 txtMail.Text.Trim(), txtTelefono.Text.Trim(),
                 cmbRedes.SelectedItem?.ToString() ?? ""
              );
-           
+
             if (resultado)
+            {
+                string dni = txtdni.Text.Trim();
+                cx.GuardarDomicilios(dni, RecolectarDomicilios());
+                cx.GuardarRedes(dni, RecolectarRedes());
+
                 MessageBox.Show("Personal guardado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+            }
+
             cmbContacto.Enabled = true;
             txtNombre.Enabled = false;
             lblNombre.Enabled = false;
@@ -443,6 +450,10 @@ namespace pryMolinaERP
         }
         private void AgregarTabRed()
         {
+            CrearTabRed();
+        }
+        private TabPage CrearTabRed()
+        {
             _contadorRedes++;
 
             var bgDark   = Color.FromArgb(248, 249, 250);
@@ -486,6 +497,7 @@ namespace pryMolinaERP
             int posPlus = tcRedes.TabPages.IndexOf(tpplus);
             tcRedes.TabPages.Insert(posPlus, nuevaTab);
             tcRedes.SelectedTab = nuevaTab;
+            return nuevaTab;
         }
 
         private void btnEliminarR_Click(object sender, EventArgs e)
@@ -521,7 +533,12 @@ namespace pryMolinaERP
             if (tpDomicilio.SelectedTab == tpdpus)
                 BeginInvoke(new Action(AgregarTabDom));
         }
+
         private void AgregarTabDom()
+        {
+            CrearTabDom();
+        }
+        private TabPage CrearTabDom()
         {
             _contadorDoms++;
 
@@ -592,6 +609,7 @@ namespace pryMolinaERP
             int posPlus = tpDomicilio.TabPages.IndexOf(tpdpus);
             tpDomicilio.TabPages.Insert(posPlus, nuevaTab);
             tpDomicilio.SelectedTab = nuevaTab;
+            return nuevaTab;
         }
 
         private void btnEliminarD_Click(object sender, EventArgs e)
@@ -720,6 +738,13 @@ namespace pryMolinaERP
 
             // Navegar al tab de Datos Personales para que el usuario vea todo
             tcDatos.SelectedTab = tpDatosPersonales;
+
+            // Cargar TODOS los domicilios y redes guardados (si existen)
+            var domicilios = cx.ObtenerDomicilios(dni);
+            if (domicilios.Count > 0) CargarDomiciliosUI(domicilios);
+
+            var redes = cx.ObtenerRedes(dni);
+            if (redes.Count > 0) CargarRedesUI(redes);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -733,6 +758,171 @@ namespace pryMolinaERP
             lblDNI.Enabled = true;
             txtdni.Enabled = true;
             tcDatos.Enabled = true;
+        }
+        private Control BuscarPorPrefijo(Control contenedor, string prefijo)
+        {
+            return contenedor.Controls.Cast<Control>()
+                .FirstOrDefault(c => c.Name != null && c.Name.StartsWith(prefijo));
+        }
+
+        private void SetComboValor(ComboBox cmb, string valor)
+        {
+            if (cmb == null) return;
+            if (string.IsNullOrEmpty(valor)) { cmb.SelectedIndex = -1; return; }
+            int idx = cmb.Items.IndexOf(valor);
+            if (idx < 0) { cmb.Items.Add(valor); idx = cmb.Items.IndexOf(valor); }
+            cmb.SelectedIndex = idx;
+        }
+
+        private string ComboVal(ComboBox cmb)
+            => cmb?.SelectedItem?.ToString() ?? cmb?.Text?.Trim() ?? "";
+
+        private List<DomicilioInfo> RecolectarDomicilios()
+        {
+            var lista = new List<DomicilioInfo>();
+
+            lista.Add(new DomicilioInfo
+            {
+                Provincia = ComboVal(cmbProv),
+                Localidad = ComboVal(cmbLoc),
+                Direccion = txtDireccion.Text.Trim(),
+                Geo = txtGeo.Text.Trim(),
+                Tipo = ComboVal(cmbTipo)
+            });
+
+            foreach (TabPage tp in tpDomicilio.TabPages)
+            {
+                if (tp == tpDom1 || tp == tpdpus) continue;
+
+                var prov = BuscarPorPrefijo(tp, "cmbProv_") as ComboBox;
+                var loc = BuscarPorPrefijo(tp, "cmbLoc_") as ComboBox;
+                var dir = BuscarPorPrefijo(tp, "txtDir_") as TextBox;
+                var geo = BuscarPorPrefijo(tp, "txtGeo_") as TextBox;
+                var tipo = BuscarPorPrefijo(tp, "cmbTipo_") as ComboBox;
+
+                var d = new DomicilioInfo
+                {
+                    Provincia = ComboVal(prov),
+                    Localidad = ComboVal(loc),
+                    Direccion = dir?.Text.Trim() ?? "",
+                    Geo = geo?.Text.Trim() ?? "",
+                    Tipo = ComboVal(tipo)
+                };
+
+                if (string.IsNullOrWhiteSpace(d.Provincia) &&
+                    string.IsNullOrWhiteSpace(d.Direccion)) continue;
+
+                lista.Add(d);
+            }
+            return lista;
+        }
+
+        private List<RedInfo> RecolectarRedes()
+        {
+            var lista = new List<RedInfo>();
+
+            string redPri = ComboVal(cmbRedes);
+            string usrPri = textBox1.Text.Trim();
+            string urlPri = txturl.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(redPri) ||
+                !string.IsNullOrWhiteSpace(usrPri) ||
+                !string.IsNullOrWhiteSpace(urlPri))
+            {
+                lista.Add(new RedInfo { Red = redPri, Usuario = usrPri, Url = urlPri });
+            }
+
+            foreach (TabPage tp in tcRedes.TabPages)
+            {
+                if (tp == tpRed1 || tp == tpplus) continue;
+
+                var red = BuscarPorPrefijo(tp, "cmbRedes_") as ComboBox;
+                var usr = BuscarPorPrefijo(tp, "txtUsuarioRed_") as TextBox;
+                var url = BuscarPorPrefijo(tp, "txtUrl_") as TextBox;
+
+                var r = new RedInfo
+                {
+                    Red = ComboVal(red),
+                    Usuario = usr?.Text.Trim() ?? "",
+                    Url = url?.Text.Trim() ?? ""
+                };
+
+                if (string.IsNullOrWhiteSpace(r.Red) &&
+                    string.IsNullOrWhiteSpace(r.Usuario) &&
+                    string.IsNullOrWhiteSpace(r.Url)) continue;
+
+                lista.Add(r);
+            }
+            return lista;
+        }
+
+        private void CargarDomiciliosUI(List<DomicilioInfo> domicilios)
+        {
+            var aEliminar = new List<TabPage>();
+            foreach (TabPage tp in tpDomicilio.TabPages)
+                if (tp != tpDom1 && tp != tpdpus) aEliminar.Add(tp);
+            foreach (TabPage tp in aEliminar) tpDomicilio.TabPages.Remove(tp);
+            _contadorDoms = 1;
+
+            if (domicilios == null || domicilios.Count == 0) return;
+
+            var d0 = domicilios[0];
+            SetComboValor(cmbProv, d0.Provincia);
+            SetComboValor(cmbLoc, d0.Localidad);
+            txtDireccion.Text = d0.Direccion;
+            txtGeo.Text = d0.Geo;
+            SetComboValor(cmbTipo, d0.Tipo);
+
+            for (int i = 1; i < domicilios.Count; i++)
+            {
+                var d = domicilios[i];
+                TabPage t = CrearTabDom();
+
+                var prov = BuscarPorPrefijo(t, "cmbProv_") as ComboBox;
+                var loc = BuscarPorPrefijo(t, "cmbLoc_") as ComboBox;
+                var dir = BuscarPorPrefijo(t, "txtDir_") as TextBox;
+                var geo = BuscarPorPrefijo(t, "txtGeo_") as TextBox;
+                var tipo = BuscarPorPrefijo(t, "cmbTipo_") as ComboBox;
+
+                SetComboValor(prov, d.Provincia);
+                SetComboValor(loc, d.Localidad);
+                if (dir != null) dir.Text = d.Direccion;
+                if (geo != null) geo.Text = d.Geo;
+                SetComboValor(tipo, d.Tipo);
+            }
+
+            tpDomicilio.SelectedTab = tpDom1;
+        }
+
+        private void CargarRedesUI(List<RedInfo> redes)
+        {
+            var aEliminar = new List<TabPage>();
+            foreach (TabPage tp in tcRedes.TabPages)
+                if (tp != tpRed1 && tp != tpplus) aEliminar.Add(tp);
+            foreach (TabPage tp in aEliminar) tcRedes.TabPages.Remove(tp);
+            _contadorRedes = 1;
+
+            if (redes == null || redes.Count == 0) return;
+
+            var r0 = redes[0];
+            SetComboValor(cmbRedes, r0.Red);
+            textBox1.Text = r0.Usuario;
+            txturl.Text = r0.Url;
+
+            for (int i = 1; i < redes.Count; i++)
+            {
+                var r = redes[i];
+                TabPage t = CrearTabRed();
+
+                var red = BuscarPorPrefijo(t, "cmbRedes_") as ComboBox;
+                var usr = BuscarPorPrefijo(t, "txtUsuarioRed_") as TextBox;
+                var url = BuscarPorPrefijo(t, "txtUrl_") as TextBox;
+
+                SetComboValor(red, r.Red);
+                if (usr != null) usr.Text = r.Usuario;
+                if (url != null) url.Text = r.Url;
+            }
+
+            tcRedes.SelectedTab = tpRed1;
         }
     }
 }
