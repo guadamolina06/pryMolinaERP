@@ -62,12 +62,17 @@ namespace pryMolinaERP
                 return;
             }
 
-            if (!perfil.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+            bool perfilPermitido =
+            perfil.Equals("Administrador", StringComparison.OrdinalIgnoreCase) ||
+            perfil.Equals("Empleado", StringComparison.OrdinalIgnoreCase);
+
+            if (!perfilPermitido)
             {
-                MessageBox.Show("Solo los usuarios Administradores pueden ingresar al sistema.",
+                MessageBox.Show("Solo los perfiles Administrador y Empleado pueden ingresar al sistema.",
                     "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
+
 
             clsConexion conexion = new clsConexion();
             UsuarioInfo info = conexion.ValidarUsuario(usuario, contrasenia, perfil);
