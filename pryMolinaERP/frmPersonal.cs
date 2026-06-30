@@ -12,6 +12,7 @@ namespace pryMolinaERP
         private readonly UsuarioInfo _usuario;
         private int _contadorRedes = 1;
         private int _contadorDoms = 1;
+        private readonly Color _colorEmpleado = Color.FromArgb(255, 243, 224);
 
 
         public frmPersonal(UsuarioInfo usuario)
@@ -108,7 +109,21 @@ namespace pryMolinaERP
             tpDomicilio.Enabled = false;
             tcRedes.Enabled = false;
 
+            this.BackColor = _colorEmpleado;
+            PintarContenedores(this, _colorEmpleado);
+        }
 
+        private void PintarContenedores(Control raiz, Color color)
+        {
+            foreach (Control c in raiz.Controls)
+            {
+                if (c is Panel || c is GroupBox || c is TabControl || c is TabPage ||
+                    c is TableLayoutPanel || c is FlowLayoutPanel)
+                {
+                    c.BackColor = color;
+                }
+                PintarContenedores(c, color);
+            }
         }
         //Cargar contactos del personal
         private void cargarContactos()
