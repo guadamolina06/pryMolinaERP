@@ -13,6 +13,7 @@ namespace pryMolinaERP
         private int _contadorRedes = 1;
         private int _contadorDoms = 1;
 
+
         public frmPersonal(UsuarioInfo usuario)
         {
             InitializeComponent();
@@ -70,6 +71,44 @@ namespace pryMolinaERP
                 lblEstadoBD.ForeColor = System.Drawing.Color.Red;
             }
             cmbContacto.Enabled = false;
+
+            AplicarPermisos();
+        }
+        // Administrador: acceso completo.
+        // Empleado (u otro perfil): sin pestaña de Auditoría y solo consulta.
+        private void AplicarPermisos()
+        {
+            bool esAdmin = _usuario != null &&
+                string.Equals(_usuario.Perfil, "Administrador", StringComparison.OrdinalIgnoreCase);
+
+            if (esAdmin) return;
+
+            // Ocultar la pestaña de Auditoría
+            if (tbcADM.TabPages.Contains(tbpAuditoria))
+                tbcADM.TabPages.Remove(tbpAuditoria);
+
+            // Modo solo lectura sobre Personal
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnGuardar.Enabled = false;
+            //SOlo puede ver los personales
+            cmbContacto.Enabled = true;
+            tcDatos.Enabled = true;
+            cmbLoc.Enabled = false;
+            cmbProv.Enabled = false;
+            cmbTipo.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtGeo.Enabled = false;
+            txtMail.Enabled = false;
+            txtTelefono.Enabled = false;
+            txturl.Enabled = false;
+            txtUsuarioR.Enabled = false;
+            cmbRedes.Enabled = false;
+            tpDomicilio.Enabled = false;
+            tcRedes.Enabled = false;
+
+
         }
         //Cargar contactos del personal
         private void cargarContactos()
@@ -822,7 +861,7 @@ namespace pryMolinaERP
             var lista = new List<RedInfo>();
 
             string redPri = ComboVal(cmbRedes);
-            string usrPri = textBox1.Text.Trim();
+            string usrPri = txtUsuarioR.Text.Trim();
             string urlPri = txturl.Text.Trim();
             if (!string.IsNullOrWhiteSpace(redPri) ||
                 !string.IsNullOrWhiteSpace(usrPri) ||
@@ -905,7 +944,7 @@ namespace pryMolinaERP
 
             var r0 = redes[0];
             SetComboValor(cmbRedes, r0.Red);
-            textBox1.Text = r0.Usuario;
+            txtUsuarioR.Text = r0.Usuario;
             txturl.Text = r0.Url;
 
             for (int i = 1; i < redes.Count; i++)
