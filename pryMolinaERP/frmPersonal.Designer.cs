@@ -113,10 +113,9 @@ namespace pryMolinaERP
             this.tbcADM.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbcADM.ItemSize = new System.Drawing.Size(120, 32);
             this.tbcADM.Location = new System.Drawing.Point(0, 0);
-            this.tbcADM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbcADM.Name = "tbcADM";
             this.tbcADM.SelectedIndex = 0;
-            this.tbcADM.Size = new System.Drawing.Size(1147, 763);
+            this.tbcADM.Size = new System.Drawing.Size(860, 627);
             this.tbcADM.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcADM.TabIndex = 10;
             this.tbcADM.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tbcADM_DrawItem);
@@ -131,10 +130,9 @@ namespace pryMolinaERP
             this.tbpUsuario.Controls.Add(this.pnlToolbar);
             this.tbpUsuario.Controls.Add(this.statusStrip1);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 36);
-            this.tbpUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Padding = new System.Windows.Forms.Padding(16, 15, 16, 15);
-            this.tbpUsuario.Size = new System.Drawing.Size(1139, 723);
+            this.tbpUsuario.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.tbpUsuario.Size = new System.Drawing.Size(852, 569);
             this.tbpUsuario.TabIndex = 0;
             this.tbpUsuario.Text = "Personal";
             // 
@@ -145,10 +143,9 @@ namespace pryMolinaERP
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(917, 630);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(688, 512);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(187, 44);
+            this.btnGuardar.Size = new System.Drawing.Size(140, 36);
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -162,11 +159,10 @@ namespace pryMolinaERP
             this.tcDatos.Enabled = false;
             this.tcDatos.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tcDatos.ItemSize = new System.Drawing.Size(150, 28);
-            this.tcDatos.Location = new System.Drawing.Point(16, 177);
-            this.tcDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcDatos.Location = new System.Drawing.Point(12, 144);
             this.tcDatos.Name = "tcDatos";
             this.tcDatos.SelectedIndex = 0;
-            this.tcDatos.Size = new System.Drawing.Size(1088, 443);
+            this.tcDatos.Size = new System.Drawing.Size(816, 360);
             this.tcDatos.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcDatos.TabIndex = 10;
             this.tcDatos.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tcDatos_DrawItem);
@@ -176,10 +172,9 @@ namespace pryMolinaERP
             this.tpDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.tpDom.Controls.Add(this.tpDomicilio);
             this.tpDom.Location = new System.Drawing.Point(4, 32);
-            this.tpDom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpDom.Name = "tpDom";
-            this.tpDom.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.tpDom.Size = new System.Drawing.Size(1080, 407);
+            this.tpDom.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.tpDom.Size = new System.Drawing.Size(808, 324);
             this.tpDom.TabIndex = 1;
             this.tpDom.Text = "Domicilio";
             // 
@@ -190,11 +185,10 @@ namespace pryMolinaERP
             this.tpDomicilio.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tpDomicilio.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tpDomicilio.ItemSize = new System.Drawing.Size(100, 26);
-            this.tpDomicilio.Location = new System.Drawing.Point(11, 10);
-            this.tpDomicilio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpDomicilio.Location = new System.Drawing.Point(8, 8);
             this.tpDomicilio.Name = "tpDomicilio";
             this.tpDomicilio.SelectedIndex = 0;
-            this.tpDomicilio.Size = new System.Drawing.Size(1053, 379);
+            this.tpDomicilio.Size = new System.Drawing.Size(790, 308);
             this.tpDomicilio.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tpDomicilio.TabIndex = 22;
             this.tpDomicilio.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tpDomicilio_DrawItem);
@@ -214,10 +208,9 @@ namespace pryMolinaERP
             this.tpDom1.Controls.Add(this.lblTipo);
             this.tpDom1.Controls.Add(this.cmbTipo);
             this.tpDom1.Location = new System.Drawing.Point(4, 30);
-            this.tpDom1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpDom1.Name = "tpDom1";
-            this.tpDom1.Padding = new System.Windows.Forms.Padding(21, 17, 21, 17);
-            this.tpDom1.Size = new System.Drawing.Size(1045, 345);
+            this.tpDom1.Padding = new System.Windows.Forms.Padding(16, 14, 16, 14);
+            this.tpDom1.Size = new System.Drawing.Size(782, 274);
             this.tpDom1.TabIndex = 0;
             this.tpDom1.Text = "Dom 1";
             // 
@@ -226,10 +219,9 @@ namespace pryMolinaERP
             this.lblProv.AutoSize = true;
             this.lblProv.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblProv.Location = new System.Drawing.Point(21, 30);
-            this.lblProv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProv.Location = new System.Drawing.Point(16, 24);
             this.lblProv.Name = "lblProv";
-            this.lblProv.Size = new System.Drawing.Size(91, 20);
+            this.lblProv.Size = new System.Drawing.Size(71, 15);
             this.lblProv.TabIndex = 0;
             this.lblProv.Text = "PROVINCIA";
             // 
@@ -241,10 +233,9 @@ namespace pryMolinaERP
             this.cmbProv.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbProv.FormattingEnabled = true;
-            this.cmbProv.Location = new System.Drawing.Point(21, 54);
-            this.cmbProv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProv.Location = new System.Drawing.Point(16, 44);
             this.cmbProv.Name = "cmbProv";
-            this.cmbProv.Size = new System.Drawing.Size(239, 29);
+            this.cmbProv.Size = new System.Drawing.Size(180, 25);
             this.cmbProv.TabIndex = 20;
             this.cmbProv.SelectedIndexChanged += new System.EventHandler(this.cmbProv_SelectedIndexChanged);
             // 
@@ -253,10 +244,9 @@ namespace pryMolinaERP
             this.lbllocalidad.AutoSize = true;
             this.lbllocalidad.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lbllocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lbllocalidad.Location = new System.Drawing.Point(280, 30);
-            this.lbllocalidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbllocalidad.Location = new System.Drawing.Point(210, 24);
             this.lbllocalidad.Name = "lbllocalidad";
-            this.lbllocalidad.Size = new System.Drawing.Size(94, 20);
+            this.lbllocalidad.Size = new System.Drawing.Size(73, 15);
             this.lbllocalidad.TabIndex = 21;
             this.lbllocalidad.Text = "LOCALIDAD";
             // 
@@ -268,10 +258,9 @@ namespace pryMolinaERP
             this.cmbLoc.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbLoc.FormattingEnabled = true;
-            this.cmbLoc.Location = new System.Drawing.Point(280, 54);
-            this.cmbLoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbLoc.Location = new System.Drawing.Point(210, 44);
             this.cmbLoc.Name = "cmbLoc";
-            this.cmbLoc.Size = new System.Drawing.Size(239, 29);
+            this.cmbLoc.Size = new System.Drawing.Size(180, 25);
             this.cmbLoc.TabIndex = 21;
             // 
             // lblDireccion
@@ -279,10 +268,9 @@ namespace pryMolinaERP
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblDireccion.Location = new System.Drawing.Point(21, 106);
-            this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDireccion.Location = new System.Drawing.Point(16, 86);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(89, 20);
+            this.lblDireccion.Size = new System.Drawing.Size(70, 15);
             this.lblDireccion.TabIndex = 22;
             this.lblDireccion.Text = "DIRECCIÓN";
             // 
@@ -292,10 +280,9 @@ namespace pryMolinaERP
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtDireccion.Location = new System.Drawing.Point(21, 130);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Location = new System.Drawing.Point(16, 106);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(498, 29);
+            this.txtDireccion.Size = new System.Drawing.Size(374, 24);
             this.txtDireccion.TabIndex = 19;
             // 
             // lblGeo
@@ -303,10 +290,9 @@ namespace pryMolinaERP
             this.lblGeo.AutoSize = true;
             this.lblGeo.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblGeo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblGeo.Location = new System.Drawing.Point(21, 182);
-            this.lblGeo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGeo.Location = new System.Drawing.Point(16, 148);
             this.lblGeo.Name = "lblGeo";
-            this.lblGeo.Size = new System.Drawing.Size(168, 20);
+            this.lblGeo.Size = new System.Drawing.Size(131, 15);
             this.lblGeo.TabIndex = 23;
             this.lblGeo.Text = "COORDENADAS (GEO)";
             // 
@@ -316,10 +302,9 @@ namespace pryMolinaERP
             this.txtGeo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGeo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtGeo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtGeo.Location = new System.Drawing.Point(21, 207);
-            this.txtGeo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGeo.Location = new System.Drawing.Point(16, 168);
             this.txtGeo.Name = "txtGeo";
-            this.txtGeo.Size = new System.Drawing.Size(498, 29);
+            this.txtGeo.Size = new System.Drawing.Size(374, 24);
             this.txtGeo.TabIndex = 18;
             // 
             // lblTipo
@@ -327,10 +312,9 @@ namespace pryMolinaERP
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblTipo.Location = new System.Drawing.Point(547, 30);
-            this.lblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipo.Location = new System.Drawing.Point(410, 24);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(149, 20);
+            this.lblTipo.Size = new System.Drawing.Size(118, 15);
             this.lblTipo.TabIndex = 24;
             this.lblTipo.Text = "TIPO DE DOMICILIO";
             // 
@@ -347,20 +331,18 @@ namespace pryMolinaERP
             "Laboral",
             "Alternatibo",
             "Fiscal"});
-            this.cmbTipo.Location = new System.Drawing.Point(547, 54);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipo.Location = new System.Drawing.Point(410, 44);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(212, 29);
+            this.cmbTipo.Size = new System.Drawing.Size(160, 25);
             this.cmbTipo.TabIndex = 23;
             // 
             // tpdpus
             // 
             this.tpdpus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.tpdpus.Location = new System.Drawing.Point(4, 30);
-            this.tpdpus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpdpus.Name = "tpdpus";
-            this.tpdpus.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tpdpus.Size = new System.Drawing.Size(1045, 345);
+            this.tpdpus.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpdpus.Size = new System.Drawing.Size(782, 274);
             this.tpdpus.TabIndex = 1;
             this.tpdpus.Text = "+";
             // 
@@ -370,10 +352,9 @@ namespace pryMolinaERP
             this.tpDatosPersonales.Controls.Add(this.gpbContacto);
             this.tpDatosPersonales.Controls.Add(this.gpbRedSocial);
             this.tpDatosPersonales.Location = new System.Drawing.Point(4, 32);
-            this.tpDatosPersonales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpDatosPersonales.Name = "tpDatosPersonales";
-            this.tpDatosPersonales.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.tpDatosPersonales.Size = new System.Drawing.Size(1080, 407);
+            this.tpDatosPersonales.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.tpDatosPersonales.Size = new System.Drawing.Size(808, 324);
             this.tpDatosPersonales.TabIndex = 0;
             this.tpDatosPersonales.Text = "Contacto";
             // 
@@ -386,11 +367,9 @@ namespace pryMolinaERP
             this.gpbContacto.Controls.Add(this.txtTelefono);
             this.gpbContacto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gpbContacto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.gpbContacto.Location = new System.Drawing.Point(16, 15);
-            this.gpbContacto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbContacto.Location = new System.Drawing.Point(12, 12);
             this.gpbContacto.Name = "gpbContacto";
-            this.gpbContacto.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gpbContacto.Size = new System.Drawing.Size(1013, 98);
+            this.gpbContacto.Size = new System.Drawing.Size(760, 80);
             this.gpbContacto.TabIndex = 0;
             this.gpbContacto.TabStop = false;
             this.gpbContacto.Text = "Contacto";
@@ -400,10 +379,9 @@ namespace pryMolinaERP
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblMail.Location = new System.Drawing.Point(21, 27);
-            this.lblMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMail.Location = new System.Drawing.Point(16, 22);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(55, 20);
+            this.lblMail.Size = new System.Drawing.Size(42, 15);
             this.lblMail.TabIndex = 0;
             this.lblMail.Text = "EMAIL";
             // 
@@ -413,10 +391,9 @@ namespace pryMolinaERP
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMail.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtMail.Location = new System.Drawing.Point(21, 49);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMail.Location = new System.Drawing.Point(16, 40);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(373, 29);
+            this.txtMail.Size = new System.Drawing.Size(280, 24);
             this.txtMail.TabIndex = 5;
             // 
             // lblTelefono
@@ -424,10 +401,9 @@ namespace pryMolinaERP
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblTelefono.Location = new System.Drawing.Point(427, 27);
-            this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelefono.Location = new System.Drawing.Point(320, 22);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(84, 20);
+            this.lblTelefono.Size = new System.Drawing.Size(65, 15);
             this.lblTelefono.TabIndex = 6;
             this.lblTelefono.Text = "TELÉFONO";
             // 
@@ -437,10 +413,9 @@ namespace pryMolinaERP
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtTelefono.Location = new System.Drawing.Point(427, 49);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Location = new System.Drawing.Point(320, 40);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(266, 29);
+            this.txtTelefono.Size = new System.Drawing.Size(200, 24);
             this.txtTelefono.TabIndex = 4;
             // 
             // gpbRedSocial
@@ -450,11 +425,9 @@ namespace pryMolinaERP
             this.gpbRedSocial.Controls.Add(this.btnEliminarR);
             this.gpbRedSocial.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gpbRedSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.gpbRedSocial.Location = new System.Drawing.Point(16, 128);
-            this.gpbRedSocial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbRedSocial.Location = new System.Drawing.Point(12, 104);
             this.gpbRedSocial.Name = "gpbRedSocial";
-            this.gpbRedSocial.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gpbRedSocial.Size = new System.Drawing.Size(1013, 258);
+            this.gpbRedSocial.Size = new System.Drawing.Size(760, 210);
             this.gpbRedSocial.TabIndex = 1;
             this.gpbRedSocial.TabStop = false;
             this.gpbRedSocial.Text = "Redes Sociales";
@@ -466,11 +439,10 @@ namespace pryMolinaERP
             this.tcRedes.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tcRedes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tcRedes.ItemSize = new System.Drawing.Size(80, 24);
-            this.tcRedes.Location = new System.Drawing.Point(11, 27);
-            this.tcRedes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcRedes.Location = new System.Drawing.Point(8, 22);
             this.tcRedes.Name = "tcRedes";
             this.tcRedes.SelectedIndex = 0;
-            this.tcRedes.Size = new System.Drawing.Size(992, 182);
+            this.tcRedes.Size = new System.Drawing.Size(744, 148);
             this.tcRedes.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcRedes.TabIndex = 0;
             this.tcRedes.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tcRedes_DrawItem);
@@ -486,10 +458,9 @@ namespace pryMolinaERP
             this.tpRed1.Controls.Add(this.lblurl);
             this.tpRed1.Controls.Add(this.txturl);
             this.tpRed1.Location = new System.Drawing.Point(4, 28);
-            this.tpRed1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpRed1.Name = "tpRed1";
-            this.tpRed1.Padding = new System.Windows.Forms.Padding(16, 12, 16, 12);
-            this.tpRed1.Size = new System.Drawing.Size(984, 150);
+            this.tpRed1.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.tpRed1.Size = new System.Drawing.Size(736, 116);
             this.tpRed1.TabIndex = 0;
             this.tpRed1.Text = "Red 1";
             // 
@@ -498,10 +469,9 @@ namespace pryMolinaERP
             this.lblred.AutoSize = true;
             this.lblred.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblred.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblred.Location = new System.Drawing.Point(16, 17);
-            this.lblred.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblred.Location = new System.Drawing.Point(12, 14);
             this.lblred.Name = "lblred";
-            this.lblred.Size = new System.Drawing.Size(38, 20);
+            this.lblred.Size = new System.Drawing.Size(30, 15);
             this.lblred.TabIndex = 0;
             this.lblred.Text = "RED";
             // 
@@ -513,10 +483,9 @@ namespace pryMolinaERP
             this.cmbRedes.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbRedes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbRedes.FormattingEnabled = true;
-            this.cmbRedes.Location = new System.Drawing.Point(80, 12);
-            this.cmbRedes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRedes.Location = new System.Drawing.Point(60, 10);
             this.cmbRedes.Name = "cmbRedes";
-            this.cmbRedes.Size = new System.Drawing.Size(225, 29);
+            this.cmbRedes.Size = new System.Drawing.Size(170, 25);
             this.cmbRedes.TabIndex = 3;
             // 
             // lblUsuario
@@ -524,10 +493,9 @@ namespace pryMolinaERP
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblUsuario.Location = new System.Drawing.Point(333, 17);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(250, 14);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(76, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(61, 15);
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "USUARIO";
             // 
@@ -537,10 +505,9 @@ namespace pryMolinaERP
             this.txtUsuarioR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuarioR.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtUsuarioR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtUsuarioR.Location = new System.Drawing.Point(421, 12);
-            this.txtUsuarioR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuarioR.Location = new System.Drawing.Point(316, 10);
             this.txtUsuarioR.Name = "txtUsuarioR";
-            this.txtUsuarioR.Size = new System.Drawing.Size(266, 29);
+            this.txtUsuarioR.Size = new System.Drawing.Size(200, 24);
             this.txtUsuarioR.TabIndex = 5;
             // 
             // lblurl
@@ -548,10 +515,9 @@ namespace pryMolinaERP
             this.lblurl.AutoSize = true;
             this.lblurl.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblurl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblurl.Location = new System.Drawing.Point(16, 66);
-            this.lblurl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblurl.Location = new System.Drawing.Point(12, 54);
             this.lblurl.Name = "lblurl";
-            this.lblurl.Size = new System.Drawing.Size(38, 20);
+            this.lblurl.Size = new System.Drawing.Size(30, 15);
             this.lblurl.TabIndex = 6;
             this.lblurl.Text = "URL";
             // 
@@ -561,20 +527,18 @@ namespace pryMolinaERP
             this.txturl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txturl.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txturl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txturl.Location = new System.Drawing.Point(80, 62);
-            this.txturl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txturl.Location = new System.Drawing.Point(60, 50);
             this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(607, 29);
+            this.txturl.Size = new System.Drawing.Size(456, 24);
             this.txturl.TabIndex = 7;
             // 
             // tpplus
             // 
             this.tpplus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.tpplus.Location = new System.Drawing.Point(4, 28);
-            this.tpplus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpplus.Name = "tpplus";
-            this.tpplus.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tpplus.Size = new System.Drawing.Size(984, 150);
+            this.tpplus.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpplus.Size = new System.Drawing.Size(736, 116);
             this.tpplus.TabIndex = 1;
             this.tpplus.Text = "+";
             // 
@@ -585,10 +549,9 @@ namespace pryMolinaERP
             this.btnEliminarR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarR.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.btnEliminarR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btnEliminarR.Location = new System.Drawing.Point(11, 214);
-            this.btnEliminarR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarR.Location = new System.Drawing.Point(8, 174);
             this.btnEliminarR.Name = "btnEliminarR";
-            this.btnEliminarR.Size = new System.Drawing.Size(147, 34);
+            this.btnEliminarR.Size = new System.Drawing.Size(110, 28);
             this.btnEliminarR.TabIndex = 1;
             this.btnEliminarR.Text = "Eliminar red";
             this.btnEliminarR.UseVisualStyleBackColor = false;
@@ -603,11 +566,10 @@ namespace pryMolinaERP
             this.pnlIdentidad.Controls.Add(this.txtNombre);
             this.pnlIdentidad.Controls.Add(this.lblApellido);
             this.pnlIdentidad.Controls.Add(this.txtApellido);
-            this.pnlIdentidad.Location = new System.Drawing.Point(16, 94);
-            this.pnlIdentidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlIdentidad.Location = new System.Drawing.Point(12, 76);
             this.pnlIdentidad.Name = "pnlIdentidad";
-            this.pnlIdentidad.Padding = new System.Windows.Forms.Padding(16, 10, 16, 10);
-            this.pnlIdentidad.Size = new System.Drawing.Size(1088, 74);
+            this.pnlIdentidad.Padding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.pnlIdentidad.Size = new System.Drawing.Size(816, 60);
             this.pnlIdentidad.TabIndex = 11;
             // 
             // lblDNI
@@ -616,10 +578,9 @@ namespace pryMolinaERP
             this.lblDNI.Enabled = false;
             this.lblDNI.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblDNI.Location = new System.Drawing.Point(16, 12);
-            this.lblDNI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDNI.Location = new System.Drawing.Point(12, 10);
             this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(37, 20);
+            this.lblDNI.Size = new System.Drawing.Size(29, 15);
             this.lblDNI.TabIndex = 0;
             this.lblDNI.Text = "DNI";
             // 
@@ -630,10 +591,9 @@ namespace pryMolinaERP
             this.txtdni.Enabled = false;
             this.txtdni.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtdni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtdni.Location = new System.Drawing.Point(16, 32);
-            this.txtdni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtdni.Location = new System.Drawing.Point(12, 26);
             this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(186, 29);
+            this.txtdni.Size = new System.Drawing.Size(140, 24);
             this.txtdni.TabIndex = 4;
             // 
             // lblNombre
@@ -642,10 +602,9 @@ namespace pryMolinaERP
             this.lblNombre.Enabled = false;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblNombre.Location = new System.Drawing.Point(227, 12);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(170, 10);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(74, 20);
+            this.lblNombre.Size = new System.Drawing.Size(58, 15);
             this.lblNombre.TabIndex = 5;
             this.lblNombre.Text = "NOMBRE";
             // 
@@ -656,10 +615,9 @@ namespace pryMolinaERP
             this.txtNombre.Enabled = false;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtNombre.Location = new System.Drawing.Point(227, 32);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Location = new System.Drawing.Point(170, 26);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(293, 29);
+            this.txtNombre.Size = new System.Drawing.Size(220, 24);
             this.txtNombre.TabIndex = 5;
             // 
             // lblApellido
@@ -668,10 +626,9 @@ namespace pryMolinaERP
             this.lblApellido.Enabled = false;
             this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblApellido.Location = new System.Drawing.Point(544, 12);
-            this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellido.Location = new System.Drawing.Point(408, 10);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(80, 20);
+            this.lblApellido.Size = new System.Drawing.Size(62, 15);
             this.lblApellido.TabIndex = 6;
             this.lblApellido.Text = "APELLIDO";
             // 
@@ -682,10 +639,9 @@ namespace pryMolinaERP
             this.txtApellido.Enabled = false;
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtApellido.Location = new System.Drawing.Point(544, 32);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Location = new System.Drawing.Point(408, 26);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(293, 29);
+            this.txtApellido.Size = new System.Drawing.Size(220, 24);
             this.txtApellido.TabIndex = 6;
             // 
             // pnlToolbar
@@ -696,11 +652,10 @@ namespace pryMolinaERP
             this.pnlToolbar.Controls.Add(this.btnEliminar);
             this.pnlToolbar.Controls.Add(this.lblContactoLbl);
             this.pnlToolbar.Controls.Add(this.cmbContacto);
-            this.pnlToolbar.Location = new System.Drawing.Point(16, 15);
-            this.pnlToolbar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlToolbar.Location = new System.Drawing.Point(12, 12);
             this.pnlToolbar.Name = "pnlToolbar";
-            this.pnlToolbar.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.pnlToolbar.Size = new System.Drawing.Size(1088, 69);
+            this.pnlToolbar.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this.pnlToolbar.Size = new System.Drawing.Size(816, 56);
             this.pnlToolbar.TabIndex = 12;
             // 
             // btnNuevo
@@ -710,10 +665,9 @@ namespace pryMolinaERP
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(11, 12);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(8, 10);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(160, 42);
+            this.btnNuevo.Size = new System.Drawing.Size(120, 34);
             this.btnNuevo.TabIndex = 8;
             this.btnNuevo.Text = "+ Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -726,10 +680,9 @@ namespace pryMolinaERP
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.btnEditar.Location = new System.Drawing.Point(181, 12);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Location = new System.Drawing.Point(136, 10);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(160, 42);
+            this.btnEditar.Size = new System.Drawing.Size(120, 34);
             this.btnEditar.TabIndex = 12;
             this.btnEditar.Text = "Editar contacto";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -742,10 +695,9 @@ namespace pryMolinaERP
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btnEliminar.Location = new System.Drawing.Point(352, 12);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(264, 10);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(147, 42);
+            this.btnEliminar.Size = new System.Drawing.Size(110, 34);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -757,10 +709,9 @@ namespace pryMolinaERP
             this.lblContactoLbl.AutoSize = true;
             this.lblContactoLbl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblContactoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblContactoLbl.Location = new System.Drawing.Point(693, 22);
-            this.lblContactoLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContactoLbl.Location = new System.Drawing.Point(520, 18);
             this.lblContactoLbl.Name = "lblContactoLbl";
-            this.lblContactoLbl.Size = new System.Drawing.Size(112, 20);
+            this.lblContactoLbl.Size = new System.Drawing.Size(89, 15);
             this.lblContactoLbl.TabIndex = 13;
             this.lblContactoLbl.Text = "Buscar por DNI:";
             // 
@@ -772,10 +723,9 @@ namespace pryMolinaERP
             this.cmbContacto.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbContacto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbContacto.FormattingEnabled = true;
-            this.cmbContacto.Location = new System.Drawing.Point(840, 16);
-            this.cmbContacto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbContacto.Location = new System.Drawing.Point(630, 13);
             this.cmbContacto.Name = "cmbContacto";
-            this.cmbContacto.Size = new System.Drawing.Size(231, 29);
+            this.cmbContacto.Size = new System.Drawing.Size(174, 25);
             this.cmbContacto.TabIndex = 13;
             this.cmbContacto.SelectedIndexChanged += new System.EventHandler(this.cmbContacto_SelectedIndexChanged_1);
             // 
@@ -785,10 +735,10 @@ namespace pryMolinaERP
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblEstadoBD});
-            this.statusStrip1.Location = new System.Drawing.Point(16, 682);
+            this.statusStrip1.Location = new System.Drawing.Point(12, 535);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1107, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(4, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
             this.statusStrip1.TabIndex = 11;
             // 
             // lblEstadoBD
@@ -796,7 +746,7 @@ namespace pryMolinaERP
             this.lblEstadoBD.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblEstadoBD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.lblEstadoBD.Name = "lblEstadoBD";
-            this.lblEstadoBD.Size = new System.Drawing.Size(182, 20);
+            this.lblEstadoBD.Size = new System.Drawing.Size(145, 17);
             this.lblEstadoBD.Text = "  ●  Verificando conexión...";
             // 
             // tbpAuditoria
@@ -807,10 +757,9 @@ namespace pryMolinaERP
             this.tbpAuditoria.Controls.Add(this.dgvAuditoria);
             this.tbpAuditoria.Controls.Add(this.pnlFiltros);
             this.tbpAuditoria.Location = new System.Drawing.Point(4, 36);
-            this.tbpAuditoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbpAuditoria.Name = "tbpAuditoria";
-            this.tbpAuditoria.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.tbpAuditoria.Size = new System.Drawing.Size(259, 83);
+            this.tbpAuditoria.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tbpAuditoria.Size = new System.Drawing.Size(852, 587);
             this.tbpAuditoria.TabIndex = 1;
             this.tbpAuditoria.Text = "Auditoría";
             // 
@@ -819,10 +768,9 @@ namespace pryMolinaERP
             this.lblTotalRegistros.AutoSize = true;
             this.lblTotalRegistros.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblTotalRegistros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblTotalRegistros.Location = new System.Drawing.Point(13, 687);
-            this.lblTotalRegistros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalRegistros.Location = new System.Drawing.Point(10, 558);
             this.lblTotalRegistros.Name = "lblTotalRegistros";
-            this.lblTotalRegistros.Size = new System.Drawing.Size(92, 20);
+            this.lblTotalRegistros.Size = new System.Drawing.Size(73, 15);
             this.lblTotalRegistros.TabIndex = 0;
             this.lblTotalRegistros.Text = "Registros: —";
             // 
@@ -833,10 +781,9 @@ namespace pryMolinaERP
             this.btnDesactivarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesactivarUsuario.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnDesactivarUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btnDesactivarUsuario.Location = new System.Drawing.Point(829, 681);
-            this.btnDesactivarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesactivarUsuario.Location = new System.Drawing.Point(631, 551);
             this.btnDesactivarUsuario.Name = "btnDesactivarUsuario";
-            this.btnDesactivarUsuario.Size = new System.Drawing.Size(277, 34);
+            this.btnDesactivarUsuario.Size = new System.Drawing.Size(208, 28);
             this.btnDesactivarUsuario.TabIndex = 100;
             this.btnDesactivarUsuario.Text = "Desactivar usuario seleccionado";
             this.btnDesactivarUsuario.UseVisualStyleBackColor = false;
@@ -872,15 +819,14 @@ namespace pryMolinaERP
             this.dgvAuditoria.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAuditoria.EnableHeadersVisualStyles = false;
             this.dgvAuditoria.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
-            this.dgvAuditoria.Location = new System.Drawing.Point(13, 86);
-            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAuditoria.Location = new System.Drawing.Point(10, 70);
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.ReadOnly = true;
             this.dgvAuditoria.RowHeadersVisible = false;
             this.dgvAuditoria.RowHeadersWidth = 51;
             this.dgvAuditoria.RowTemplate.Height = 28;
             this.dgvAuditoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuditoria.Size = new System.Drawing.Size(1093, 591);
+            this.dgvAuditoria.Size = new System.Drawing.Size(820, 475);
             this.dgvAuditoria.TabIndex = 1;
             // 
             // pnlFiltros
@@ -897,11 +843,10 @@ namespace pryMolinaERP
             this.pnlFiltros.Controls.Add(this.dtpHasta);
             this.pnlFiltros.Controls.Add(this.btnFlitrar);
             this.pnlFiltros.Controls.Add(this.btnLimpiarFiltro);
-            this.pnlFiltros.Location = new System.Drawing.Point(13, 12);
-            this.pnlFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlFiltros.Location = new System.Drawing.Point(10, 10);
             this.pnlFiltros.Name = "pnlFiltros";
-            this.pnlFiltros.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.pnlFiltros.Size = new System.Drawing.Size(1093, 64);
+            this.pnlFiltros.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.pnlFiltros.Size = new System.Drawing.Size(820, 52);
             this.pnlFiltros.TabIndex = 101;
             // 
             // lblFiltroUsuario
@@ -909,10 +854,9 @@ namespace pryMolinaERP
             this.lblFiltroUsuario.AutoSize = true;
             this.lblFiltroUsuario.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblFiltroUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblFiltroUsuario.Location = new System.Drawing.Point(13, 17);
-            this.lblFiltroUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltroUsuario.Location = new System.Drawing.Point(10, 14);
             this.lblFiltroUsuario.Name = "lblFiltroUsuario";
-            this.lblFiltroUsuario.Size = new System.Drawing.Size(67, 20);
+            this.lblFiltroUsuario.Size = new System.Drawing.Size(52, 15);
             this.lblFiltroUsuario.TabIndex = 0;
             this.lblFiltroUsuario.Text = "Usuario:";
             // 
@@ -922,10 +866,9 @@ namespace pryMolinaERP
             this.txtFiltroUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFiltroUsuario.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtFiltroUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.txtFiltroUsuario.Location = new System.Drawing.Point(93, 14);
-            this.txtFiltroUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFiltroUsuario.Location = new System.Drawing.Point(70, 11);
             this.txtFiltroUsuario.Name = "txtFiltroUsuario";
-            this.txtFiltroUsuario.Size = new System.Drawing.Size(133, 27);
+            this.txtFiltroUsuario.Size = new System.Drawing.Size(100, 23);
             this.txtFiltroUsuario.TabIndex = 2;
             // 
             // lblFiltroAccion
@@ -933,10 +876,9 @@ namespace pryMolinaERP
             this.lblFiltroAccion.AutoSize = true;
             this.lblFiltroAccion.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblFiltroAccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblFiltroAccion.Location = new System.Drawing.Point(243, 17);
-            this.lblFiltroAccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltroAccion.Location = new System.Drawing.Point(182, 14);
             this.lblFiltroAccion.Name = "lblFiltroAccion";
-            this.lblFiltroAccion.Size = new System.Drawing.Size(60, 20);
+            this.lblFiltroAccion.Size = new System.Drawing.Size(47, 15);
             this.lblFiltroAccion.TabIndex = 3;
             this.lblFiltroAccion.Text = "Acción:";
             // 
@@ -947,10 +889,9 @@ namespace pryMolinaERP
             this.cmbFiltroAccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbFiltroAccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbFiltroAccion.FormattingEnabled = true;
-            this.cmbFiltroAccion.Location = new System.Drawing.Point(312, 14);
-            this.cmbFiltroAccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFiltroAccion.Location = new System.Drawing.Point(234, 11);
             this.cmbFiltroAccion.Name = "cmbFiltroAccion";
-            this.cmbFiltroAccion.Size = new System.Drawing.Size(185, 28);
+            this.cmbFiltroAccion.Size = new System.Drawing.Size(140, 23);
             this.cmbFiltroAccion.TabIndex = 11;
             // 
             // chkFiltroFecha
@@ -959,10 +900,9 @@ namespace pryMolinaERP
             this.chkFiltroFecha.BackColor = System.Drawing.Color.White;
             this.chkFiltroFecha.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.chkFiltroFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.chkFiltroFecha.Location = new System.Drawing.Point(517, 17);
-            this.chkFiltroFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkFiltroFecha.Location = new System.Drawing.Point(388, 14);
             this.chkFiltroFecha.Name = "chkFiltroFecha";
-            this.chkFiltroFecha.Size = new System.Drawing.Size(75, 24);
+            this.chkFiltroFecha.Size = new System.Drawing.Size(61, 19);
             this.chkFiltroFecha.TabIndex = 12;
             this.chkFiltroFecha.Text = "Fecha:";
             this.chkFiltroFecha.UseVisualStyleBackColor = false;
@@ -973,20 +913,18 @@ namespace pryMolinaERP
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblDesde.Location = new System.Drawing.Point(600, 17);
-            this.lblDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesde.Location = new System.Drawing.Point(450, 14);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(56, 20);
+            this.lblDesde.Size = new System.Drawing.Size(45, 15);
             this.lblDesde.TabIndex = 13;
             this.lblDesde.Text = "Desde:";
             // 
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(667, 14);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDesde.Location = new System.Drawing.Point(500, 11);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(124, 27);
+            this.dtpDesde.Size = new System.Drawing.Size(94, 23);
             this.dtpDesde.TabIndex = 5;
             // 
             // lblHasta
@@ -994,20 +932,18 @@ namespace pryMolinaERP
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblHasta.Location = new System.Drawing.Point(803, 17);
-            this.lblHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHasta.Location = new System.Drawing.Point(602, 14);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(53, 20);
+            this.lblHasta.Size = new System.Drawing.Size(41, 15);
             this.lblHasta.TabIndex = 14;
             this.lblHasta.Text = "Hasta:";
             // 
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(864, 14);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHasta.Location = new System.Drawing.Point(648, 11);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(124, 27);
+            this.dtpHasta.Size = new System.Drawing.Size(94, 23);
             this.dtpHasta.TabIndex = 6;
             // 
             // btnFlitrar
@@ -1017,10 +953,9 @@ namespace pryMolinaERP
             this.btnFlitrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFlitrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnFlitrar.ForeColor = System.Drawing.Color.White;
-            this.btnFlitrar.Location = new System.Drawing.Point(1003, 12);
-            this.btnFlitrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFlitrar.Location = new System.Drawing.Point(752, 10);
             this.btnFlitrar.Name = "btnFlitrar";
-            this.btnFlitrar.Size = new System.Drawing.Size(40, 30);
+            this.btnFlitrar.Size = new System.Drawing.Size(30, 24);
             this.btnFlitrar.TabIndex = 9;
             this.btnFlitrar.Text = "▶";
             this.btnFlitrar.UseVisualStyleBackColor = false;
@@ -1033,10 +968,9 @@ namespace pryMolinaERP
             this.btnLimpiarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarFiltro.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.btnLimpiarFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.btnLimpiarFiltro.Location = new System.Drawing.Point(1045, 12);
-            this.btnLimpiarFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarFiltro.Location = new System.Drawing.Point(784, 10);
             this.btnLimpiarFiltro.Name = "btnLimpiarFiltro";
-            this.btnLimpiarFiltro.Size = new System.Drawing.Size(40, 30);
+            this.btnLimpiarFiltro.Size = new System.Drawing.Size(30, 24);
             this.btnLimpiarFiltro.TabIndex = 99;
             this.btnLimpiarFiltro.Text = "✕";
             this.btnLimpiarFiltro.UseVisualStyleBackColor = false;
@@ -1044,14 +978,13 @@ namespace pryMolinaERP
             // 
             // frmPersonal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1147, 763);
+            this.ClientSize = new System.Drawing.Size(860, 627);
             this.Controls.Add(this.tbcADM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmPersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
