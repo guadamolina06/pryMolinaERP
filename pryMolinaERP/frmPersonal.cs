@@ -76,7 +76,7 @@ namespace pryMolinaERP
             AplicarPermisos();
         }
         // Administrador: acceso completo.
-        // Empleado (u otro perfil): sin pestaña de Auditoría y solo consulta.
+        // Empleado : sin pestaña de Auditoría y solo consulta.
         private void AplicarPermisos()
         {
             bool esAdmin = _usuario != null &&
@@ -88,7 +88,7 @@ namespace pryMolinaERP
             if (tbcADM.TabPages.Contains(tbpAuditoria))
                 tbcADM.TabPages.Remove(tbpAuditoria);
 
-            // Modo solo lectura sobre Personal
+            //Modo solo lectura sobre Personal
             btnNuevo.Enabled = false;
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
